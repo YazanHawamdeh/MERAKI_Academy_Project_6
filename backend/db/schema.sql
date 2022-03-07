@@ -56,3 +56,15 @@ FOREIGN KEY (hotels_id) REFERENCES hotels(id),
 is_deleted TINYINT DEFAULT 0,
 PRIMARY KEY (id)
 );
+
+CREATE TABLE comments(
+    id INT AUTO_INCREMENT NOT NULL,
+    comment VARCHAR(255),
+    commenter VARCHAR(255),
+    hotels_id INT,
+FOREIGN KEY (hotels_id) REFERENCES hotels(id),
+    commenter_id INT,
+    FOREIGN KEY (commenter_id) REFERENCES users(id),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);
