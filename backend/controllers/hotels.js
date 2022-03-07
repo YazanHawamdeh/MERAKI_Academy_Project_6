@@ -13,6 +13,7 @@ const createNewHotels = (req, res) => {
     image5,
     description,
     price,
+    
   ];
   connection.query(query, data, (err, results) => {
     if (err) {
@@ -28,6 +29,24 @@ const createNewHotels = (req, res) => {
     });
   });
 };
+
+const getAllHotels=(req,res)=>{
+    const query = `SELECT * FROM hotels WHERE is_deleted=0`
+    connection.query(query,(err,results)=>{
+        if (err) {
+            return res.status(500).json({
+              success: false,
+              massage: "server error",
+              err: err,
+            });
+          }
+          res.status(200).json({
+            success: true,
+            results: results,
+          })
+    })
+}
 module.exports={
-    createNewHotels
+    createNewHotels,
+    getAllHotels
 }
