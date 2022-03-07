@@ -66,6 +66,25 @@ const gethotelByName = (req, res) => {
         }
     })
 }
+//================================================
+const gethotelById = (req, res) => {
+
+    const query = `SELECT * FROM hotels WHERE id=? AND is_deleted=0`
+    const id = req.params.id
+    connection.query(query, id, (err, result) => {
+        if (err) {
+
+            res.json({ success: false, massege: "the hotel not found", err: err })
+            res.status(404)
+
+        }
+        else {
+            res.json({ success: true, massege: ` the hotel `, result: result })
+            res.status(200)
+
+        }
+    })
+}
 
 //===========================================
 const updateHotelsById = (req, res) => {
@@ -86,7 +105,7 @@ const updateHotelsById = (req, res) => {
 const deleteHotelsById = (req, res) => {
   const query = `UPDATE hotels SET is_deleted=1 WHERE id=?`;
   const id = req.params.id;
-  connection.query(query, id, (err, result) => {
+  connection.query(query, id, (err) => {
     if (err) {
       return res.status(404).json({
         success: false,
@@ -106,4 +125,5 @@ module.exports = {
   updateHotelsById,
   deleteHotelsById,
   gethotelByName,
+  gethotelById,
 };
