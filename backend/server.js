@@ -19,14 +19,14 @@ app.use(cors());
 const rolesRouter = require("./routes/roles");
 // const loginRouter = require("./routes/roles");
 // const usersRouter = require("./routes/roles");
-// const hotelsRouter = require("./routes/roles");
+const hotelsRouter = require("./routes/hotels");
 // const citiesRouter = require("./routes/roles");
 
 // router middleware
 app.use("/roles", rolesRouter);
 // app.use("/login", loginRouter);
 // app.use("/users", usersRouter);
-// app.use("/hotels", hotelsRouter);
+app.use("/hotels", hotelsRouter);
 // app.use("/cities", citiesRouter);
 
 
