@@ -7,11 +7,11 @@ const {createNewCity, getAllCities, getCityByName,
 const citiesRouter=express.Router()
 citiesRouter.post("/",createNewCity)
 citiesRouter.get("/",getAllCities)
-citiesRouter.get("search_name/:name",getCityByName)
-citiesRouter.get("search_id/:id",getCityById)
+citiesRouter.get("/search_name/:name",getCityByName)
+citiesRouter.get("/search_id/:id",getCityById)
 citiesRouter.put("/:id", updateCityById);
 citiesRouter.delete("/:id",deleteCityById)
-citiesRouter.get("nolimit/",getCityNoLimit)
+citiesRouter.get("/nolimit",getCityNoLimit)
 
 
 
