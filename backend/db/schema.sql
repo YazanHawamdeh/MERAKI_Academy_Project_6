@@ -21,3 +21,61 @@ CREATE TABLE users(
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+CREATE TABLE city(
+ id INT AUTO_INCREMENT NOT NULL,
+ name VARCHAR(255) NOT NULL,
+ image VARCHAR(255) NOT NULL,
+ description VARCHAR(255) NOT NULL,
+ is_deleted TINYINT DEFAULT 0,
+PRIMARY KEY (id)
+)
+
+
+CREATE TABLE hotels(
+id INT AUTO_INCREMENT NOT NULL,
+name VARCHAR(255) NOT NULL,
+image VARCHAR(255) NOT NULL,
+image2 VARCHAR(255) NOT NULL,
+image3 VARCHAR(255) NOT NULL,
+image4 VARCHAR(255) NOT NULL,
+image4 VARCHAR(255) NOT NULL,
+description VARCHAR(255) NOT NULL,
+price INT(7) NOT NULL,
+city_id INT,
+FOREIGN KEY(city_id) REFERENCES city(id),
+is_deleted TINYINT DEFAULT 0,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE wishList(
+id INT AUTO_INCREMENT NOT NULL,
+user_id INT,
+FOREIGN KEY (user_id) REFERENCES users(id),
+hotels_id INT,
+FOREIGN KEY (hotels_id) REFERENCES hotels(id),
+is_deleted TINYINT DEFAULT 0,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE comments(
+    id INT AUTO_INCREMENT NOT NULL,
+    comment VARCHAR(255),
+    commenter VARCHAR(255),
+    hotels_id INT,
+FOREIGN KEY (hotels_id) REFERENCES hotels(id),
+    commenter_id INT,
+    FOREIGN KEY (commenter_id) REFERENCES users(id),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE ratings(
+    id INT AUTO_INCREMENT NOT NULL,
+    rating DECIMAL(2,1),
+    hotels_id INT,
+FOREIGN KEY (hotels_id) REFERENCES hotels(id),
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);
