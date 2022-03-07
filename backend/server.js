@@ -3,6 +3,9 @@ require("dotenv").config();
 const cors = require("cors");
 require("./db/db");
 
+
+
+
 //routers
 
 
@@ -12,7 +15,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+//importing routers
+const rolesRouter = require("./routes/roles");
+
 // router middleware
+app.use("/roles", rolesRouter);
 
 
 const PORT = process.env.PORT || 5000;
