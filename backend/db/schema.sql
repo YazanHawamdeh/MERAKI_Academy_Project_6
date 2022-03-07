@@ -68,3 +68,14 @@ FOREIGN KEY (hotels_id) REFERENCES hotels(id),
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE ratings(
+    id INT AUTO_INCREMENT NOT NULL,
+    rating DECIMAL(2,1),
+    hotels_id INT,
+FOREIGN KEY (hotels_id) REFERENCES hotels(id),
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);
