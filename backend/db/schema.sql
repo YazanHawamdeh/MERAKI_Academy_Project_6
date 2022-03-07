@@ -1,5 +1,5 @@
-DROP goodNight;
-CREATE goodNight
+DROP  DATABASE goodNight;
+CREATE DATABASE goodNight;
 
 Use goodNight
 
@@ -28,7 +28,7 @@ CREATE TABLE city(
  description VARCHAR(255) NOT NULL,
  is_deleted TINYINT DEFAULT 0,
 PRIMARY KEY (id)
-)
+);
 
 
 CREATE TABLE hotels(
@@ -38,7 +38,7 @@ image VARCHAR(255) NOT NULL,
 image2 VARCHAR(255) NOT NULL,
 image3 VARCHAR(255) NOT NULL,
 image4 VARCHAR(255) NOT NULL,
-image4 VARCHAR(255) NOT NULL,
+image5 VARCHAR(255) NOT NULL,
 description VARCHAR(255) NOT NULL,
 price INT(7) NOT NULL,
 city_id INT,
