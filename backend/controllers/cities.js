@@ -61,7 +61,7 @@ const getAllCities = (req, res) => {
 
 const getCityByName = (req, res) => {
 
-    const query = `SELECT * FROM cities WHERE name=? AND is_deleted=0`;
+    const query = `SELECT * FROM city WHERE name=? AND is_deleted=0`;
     const cityName = [req.query.name];
 
 
@@ -163,6 +163,8 @@ const getCityById = (req, res) => {
 
 
 //========================================================
+
+
 const getCityNoLimit = (req, res) => {
 
 
