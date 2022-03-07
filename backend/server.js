@@ -3,11 +3,7 @@ require("dotenv").config();
 const cors = require("cors");
 require("./db/db");
 
-
-
-
 //routers
-
 
 const app = express();
 
@@ -17,31 +13,21 @@ app.use(cors());
 
 //importing routers
 const rolesRouter = require("./routes/roles");
-// const loginRouter = require("./routes/roles");
-// const usersRouter = require("./routes/roles");
+const loginRouter = require("./routes/login");
+const usersRouter = require("./routes/users");
 
 const hotelsRouter = require("./routes/hotels");
 
-
-
-
 const citiesRouter = require("./routes/cities");
-
-
 
 // router middleware
 app.use("/roles", rolesRouter);
-// app.use("/login", loginRouter);
-// app.use("/users", usersRouter);
+app.use("/login", loginRouter);
+app.use("/users", usersRouter);
 
 app.use("/hotels", hotelsRouter);
 
-
-
 app.use("/cities", citiesRouter);
-
-
-
 
 const PORT = process.env.PORT || 5000;
 
