@@ -21,3 +21,12 @@ CREATE TABLE users(
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
+CREATE TABLE city(
+ id INT AUTO_INCREMENT NOT NULL,
+ name VARCHAR(255) NOT NULL,
+ image VARCHAR(255) NOT NULL,
+ description VARCHAR(255) NOT NULL,
+ is_deleted TINYINT DEFAULT 0,
+PRIMARY KEY (id)
+)
+
