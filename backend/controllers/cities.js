@@ -61,11 +61,11 @@ const getAllCities = (req, res) => {
 
 const getCityByName = (req, res) => {
 
-    const query = `SELECT * FROM cities WHERE name=? AND is_deleted=0`;
-    const cityName = [req.query.name];
+    const query = `SELECT * FROM city WHERE name=? AND is_deleted=0`;
+    const cityName = [req.params.name];
 
 
-    connection.query(query, cityName, (err, result, field) => {
+    connection.query(query, cityName, (err, result) => {
         if (err) {
 
             res.json({ success: false, massege: "the city not found", err: err })
@@ -73,7 +73,7 @@ const getCityByName = (req, res) => {
 
         }
         else {
-            res.json({ success: true, massege: `the city `, cities: result })
+            res.json({ success: true, massege: `the city:`, cities: result })
             res.status(200)
 
         }
@@ -145,7 +145,7 @@ const getCityById = (req, res) => {
 
     const query = `SELECT * FROM city WHERE id=?`
     const id = req.params.id
-    connection.query(query, id, (err, result, field) => {
+    connection.query(query, id, (err, result) => {
         if (err) {
 
             res.json({ success: false, massege: "the city not found", err: err })
