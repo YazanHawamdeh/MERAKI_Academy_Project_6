@@ -55,8 +55,41 @@ const GetMyWishList = (req, res) => {
     });
   };
 
+  //===================================================
+
+const deleteFromMyWishList = (req, res) => {
+  const id = req.params.id;
+
+  const query = `UPDATE wishList SET is_deleted=1 WHERE id=?;`;
+
+  const data = [id];
+
+  connection.query(query, data, (err, results) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    }
+    if (!results.changedRows) {
+      return res.status(404).json({
+        success: false,
+        massage: `The wishList: ${id} is not found`,
+        err: err,
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      massage: `Succeeded to delete wishList with id: ${id}`,
+      results: results,
+    });
+  });
+};
 
   module.exports={
     addToWishList,
-    GetMyWishList
+    GetMyWishList,
+    deleteFromMyWishList
   }
