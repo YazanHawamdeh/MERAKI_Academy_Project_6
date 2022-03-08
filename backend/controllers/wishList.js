@@ -4,7 +4,7 @@ const addToWishList = (req, res) => {
     const user_id = req.token.userId;
     const hotel_id = req.params.id;
     const data = [user_id, hotel_id];
-    const query = `INSERT INTO wishList (user_id, hotel_id) VALUES (?,?)`;
+    const query = `INSERT INTO wishList (user_id, hotels_id) VALUES (?,?)`;
     connection.query(query, data, (err, result) => {
       if (err) {
         return res.status(404).json({
@@ -27,7 +27,7 @@ const addToWishList = (req, res) => {
 //GetMyWishList
 
 const GetMyWishList = (req, res) => {
-    const query = `SELECT   wishList.*,hotels.name,hotels.image,hotels.description,hotels.price
+    const query = `SELECT   wishList.*,hotels.hotelName,hotels.image,hotels.description,hotels.price
   
     FROM wishList inner Join hotels on hotels_id = hotels.id WHERE wishList.is_deleted=0 AND wishList.user_id=${req.token.userId} ;`;
   
