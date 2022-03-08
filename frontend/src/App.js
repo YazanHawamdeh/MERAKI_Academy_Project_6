@@ -3,8 +3,13 @@ import { Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
 import Home from "./components/Home";
 // import Navigation from "./components/Navigation";
-// import Cities from "./components/Cities";
+
+
 import Hotels from "./components/Hotels";
+
+import Cities from "./components/Cities";
+
+
 // import WishList from "./components/WishList";
 
 
@@ -19,7 +24,7 @@ const App = () => {
       <Routes>
 
         <Route path="/home" element={<Home />} />
-        {/* <Route path="/cities" element={<Cities />} /> */}
+        <Route path="/cities" element={<Cities />} />
 
 
         <Route path="/hotels" element={<Hotels />} />
