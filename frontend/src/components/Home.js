@@ -32,12 +32,15 @@ const Home=()=>{
 
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item interval={3000}>
+    <Carousel activeIndex={index} onSelect={handleSelect} >
+      <Carousel.Item interval={3000} >
+      <h1 style={{z:'20'}}>hiiii</h1>
+
         <img
-          className="d-block w-100"
-          src="https://a0.muscache.com/im/pictures/db8167f7-5c57-4684-80ae-4350c73e45ef.jpg?im_w=320"
+          className="d-block w-100 " style={{height:"45rem"}}
+          src="https://images.pexels.com/photos/5484912/pexels-photo-5484912.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
           alt="First slide"
+          
         />
         <Carousel.Caption>
           <h3>First slide label</h3>
@@ -46,21 +49,18 @@ const Home=()=>{
       </Carousel.Item>
       <Carousel.Item interval={3000}>
         <img
-          className="d-block w-100"
-          src="https://a0.muscache.com/im/pictures/db8167f7-5c57-4684-80ae-4350c73e45ef.jpg?im_w=320
+          className="d-block w-100" style={{height:"45rem"}}
+          src="https://images.pexels.com/photos/5104057/pexels-photo-5104057.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
           "
           alt="Second slide"
         />
 
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
+      
       </Carousel.Item>
       <Carousel.Item interval={3000}>
         <img
-          className="d-block w-100"
-          src="https://a0.muscache.com/im/pictures/db8167f7-5c57-4684-80ae-4350c73e45ef.jpg?im_w=320
+          className="d-block w-100" style={{height:"45rem"}}
+          src="https://images.pexels.com/photos/5104057/pexels-photo-5104057.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
 "
           alt="Third slide"
         />

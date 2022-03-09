@@ -45,22 +45,28 @@ const state=useSelector((state) => {
 
 
     return(
-        <div class="container">
+        <div class="container-fluid col-11">
 
-            <div className='row'>
+            <div className='row mt-5'>
 
             {show&&state.hotels.map(hotel=>{
                 return (
-                    <div class="col col-xl-4 col-sm-12">
-                     <div class="card ">
-                       <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top" alt="Hollywood Sign on The Hill"/>
-                       <div class="card-body">
-                         <h5 class="card-title">Card title : {hotel.hotelName}</h5>
-                         <p class="card-text">
-                           This is a longer card with supporting text below as a natural lead-in to
-                           additional content. This content is a little bit longer.
+                    <div class="col col-xl-3 col-sm-6">
+                     <div class=" ">
+                       <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded" alt="Hollywood Sign on The Hill"/>
+                       <div class="card-body ">
+                         <div className='row'>
+                         <div className='col-xl-6'>
+                         <h5 class="card-title"> {hotel.hotelName}</h5>
+                         </div>
+                         <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
+                           <p >price: {hotel.price}</p>
+                         </div></div>
+                         <p >
+                          <p className='col'>{hotel.description}</p>
                          </p>
                        </div>
+               
                      </div>
                    </div>
 
