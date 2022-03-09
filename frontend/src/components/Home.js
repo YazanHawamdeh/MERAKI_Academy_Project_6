@@ -9,6 +9,7 @@ import {
   setCities,
   
 } from ".././reducer/cities";
+import Cities from "./Cities";
 
 
 const Home=()=>{
@@ -32,9 +33,9 @@ const Home=()=>{
 
 
   return (
+    <div>
     <Carousel activeIndex={index} onSelect={handleSelect} >
       <Carousel.Item interval={3000} >
-      <h1 style={{z:'20'}}>hiiii</h1>
 
         <img
           className="d-block w-100 " style={{height:"45rem"}}
@@ -72,10 +73,27 @@ const Home=()=>{
           </p>
         </Carousel.Caption>
       </Carousel.Item>
+
     </Carousel>
-  
+  <Cities/>
 
+  <h2 className="mb-3  mt-3 mb-5 container-fluid col-11 mt-5 display-5 fw-bold">Discover Airbnb Experiences</h2>
+  <div className='container-fluid col-11'>
 
+  <div className='row '>
+  <img
+          className="d-block w-50 " style={{height:"45rem",borderRadius:"3%"}}
+          src="https://images.pexels.com/photos/4388167/pexels-photo-4388167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+"
+          alt="Third slide"
+        />
+         <img
+          className="d-block w-50 " style={{height:"45rem",borderRadius:"3%"}}
+          src="https://images.pexels.com/photos/3293854/pexels-photo-3293854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+"
+          alt="Third slide"
+        /></div></div>
+    </div>
         
     );
 }
