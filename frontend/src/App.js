@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 import { Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
 import Home from "./components/Home";
-// import Navigation from "./components/Navigation";
+import Navigation from "./components/Navigation";
 
 
 import Hotels from "./components/Hotels";
@@ -19,7 +20,7 @@ import Cities from "./components/Cities";
 const App = () => {
   return (
     <div className="App">
-      {/* <Route path="/navigation" element={<Navigation />} /> */}
+  <Navigation />
 
       <Routes>
 
