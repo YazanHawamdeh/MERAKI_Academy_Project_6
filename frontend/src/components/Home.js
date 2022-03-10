@@ -77,22 +77,37 @@ const Home=()=>{
     </Carousel>
   <Cities/>
 
-  <h2 className="mb-3  mt-3 mb-5 container-fluid col-11 mt-5 display-5 fw-bold">Discover Airbnb Experiences</h2>
-  <div className='container-fluid col-11'>
+  <h2 className="mb-3  mt-3  container-fluid col-11 mt-5 display-5 fw-bold">Discover Airbnb Experiences</h2>
+  <div className='container-fluid col-11 ' style={{position:"relative",zIndex:"-1"}}>
 
   <div className='row '>
+   <div className="d-block col-sm-12 col-xl-6 mt-5">
   <img
-          className="d-block w-50 " style={{height:"45rem",borderRadius:"3%"}}
+           style={{borderRadius:"3%",height:"45rem",zIndex:"-1",position:"relative"}} className="w-100"
           src="https://images.pexels.com/photos/4388167/pexels-photo-4388167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
 "
           alt="Third slide"
         />
+          <h2 className="mb-3  mt-3  container-fluid col-11 mt-5 display-5 fw-bold" style={{zIndex:"1",position: "absolute",color:"white",
+  top:"20%",
+  left: "6%"}}>Things to do<br/>
+  on your trip</h2>
+  </div>
+  <div className="d-block col-sm-12 col-xl-6  mt-5">
          <img
-          className="d-block w-50 " style={{height:"45rem",borderRadius:"3%"}}
-          src="https://images.pexels.com/photos/3293854/pexels-photo-3293854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+           style={{borderRadius:"3%",height:"45rem"}} className="w-100"
+          src="https://images.pexels.com/photos/3293854/pexels-photo-3293854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350&w=240
 "
           alt="Third slide"
-        /></div></div>
+        />
+<h2 className="mb-3  mt-3  container-fluid col-11 mt-5 display-5 fw-bold" style={{zIndex:"1",position: "absolute",color:"white",
+  top:"20%",
+  left: "40%"}}>Things to do<br/>
+  on your trip</h2></div>
+
+        </div></div>
+
+  
     </div>
         
     );
