@@ -53,11 +53,11 @@ const state=useSelector((state) => {
                 return (
                     <div class="col col-xl-3 col-sm-6">
                      <div class=" ">
-                       <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded" alt="Hollywood Sign on The Hill"/>
+                       <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded " style={{height:"360px" }} alt="Hollywood Sign on The Hill"/>
                        <div class="card-body ">
                          <div className='row'>
                          <div className='col-xl-6'>
-                         <h5 class="card-title"> {hotel.hotelName}</h5>
+                         <h5 class="card-title" style={{height:"20px"}}> {hotel.hotelName}</h5>
                          </div>
                          <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
                            <p >price: {hotel.price}</p>
