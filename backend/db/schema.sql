@@ -1,7 +1,7 @@
 DROP  DATABASE goodNight;
 CREATE DATABASE goodNight;
 
-Use goodNight
+Use goodNight;
 
 CREATE TABLE roles (
     role_id INT AUTO_INCREMENT NOT NULL,
@@ -82,8 +82,9 @@ FOREIGN KEY (hotels_id) REFERENCES hotels(id),
 
 insert into roles(role) values('admin'),('user');
 
-INSERT INTO city (name,image,description) VALUES ('Amman','https://touristjourney.com/wp-content/uploads/2020/07/Where-to-Stay-in-Amman0-scaled.jpg','The capital of Jordan, is a modern city with numerous ancient ruins')
-INSERT INTO city (name,image,description) VALUES ('Aqaba','https://stepintojordan.com/wp-content/uploads/2019/09/Wadi-Musa-Restaurants-Petra-Jordan.jpg',"Aqaba is a Jordanian port city on the Red Sea's Gulf of Aqaba")
-INSERT INTO city (name,image,description) VALUES ('Wadi Musa','https://stepintojordan.com/wp-content/uploads/2019/09/Wadi-Musa-Restaurants-Petra-Jordan.jpg',"Wadi Musa is a town located in the Ma'an Governorate in southern Jordan.")
+INSERT INTO city (name,image,description) VALUES ('Amman','https://touristjourney.com/wp-content/uploads/2020/07/Where-to-Stay-in-Amman0-scaled.jpg','The capital of Jordan, is a modern city with numerous ancient ruins');
+INSERT INTO city (name,image,description) VALUES ('Aqaba','https://stepintojordan.com/wp-content/uploads/2019/09/Wadi-Musa-Restaurants-Petra-Jordan.jpg',"Aqaba is a Jordanian port city on the Red Sea's Gulf of Aqaba");
+
+INSERT INTO city (name,image,description) VALUES ('Wadi Musa','https://stepintojordan.com/wp-content/uploads/2019/09/Wadi-Musa-Restaurants-Petra-Jordan.jpg',"Wadi Musa is a town located in the Ma'an Governorate in southern Jordan.");
 INSERT INTO city (name,image,description) VALUES ('Madaba','https://media.tacdn.com/media/attractions-splice-spp-674x446/09/76/3e/69.jpg
-','Madaba is an ancient town in Jordan, southwest of the capital Amman')
+','Madaba is an ancient town in Jordan, southwest of the capital Amman');
