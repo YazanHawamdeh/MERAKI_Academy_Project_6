@@ -11,6 +11,7 @@ import Hotels from "./components/Hotels";
 import Cities from "./components/Cities";
 
 import "./App.css";
+
 // import WishList from "./components/WishList";
 
 
@@ -26,13 +27,14 @@ const App = () => {
 
         <Route path="/home" element={<Home />} />
         <Route path="/cities" element={<Cities />} />
-        <Route path='/footer' element={<Footer/>}/>
+        
 
         <Route path="/hotels" element={<Hotels />} />
         {/* <Route path="/wishList" element={<WishList />} /> */}
 
 
       </Routes>
+      <Footer />
 
     </div>
   );
