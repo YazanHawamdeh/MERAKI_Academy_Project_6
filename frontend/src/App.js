@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Home from "./components/Home";
 import Navigation from "./components/Navigation";
 
-
+import Footer from './components/Footer/Footer';
 import Hotels from "./components/Hotels";
 
 import Cities from "./components/Cities";
@@ -26,7 +26,7 @@ const App = () => {
 
         <Route path="/home" element={<Home />} />
         <Route path="/cities" element={<Cities />} />
-
+        <Route path='/footer' element={<Footer/>}/>
 
         <Route path="/hotels" element={<Hotels />} />
         {/* <Route path="/wishList" element={<WishList />} /> */}
