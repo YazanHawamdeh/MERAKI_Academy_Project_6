@@ -77,33 +77,40 @@ const Home=()=>{
     </Carousel>
   <Cities/>
 
-  <h2 className="mb-3  mt-3  container-fluid col-11 mt-5 display-5 fw-bold">Discover Airbnb Experiences</h2>
+  <h2 className="mb-3  mt-5 mb-5  container-fluid col-11 display-5 fw-bold">Discover Airbnb Experiences</h2>
   <div className='container-fluid col-11 ' style={{position:"relative",zIndex:"-1"}}>
 
   <div className='row '>
-   <div className="d-block col-sm-12 col-xl-6 mt-5">
+   <div className="d-block col-sm-12 col-xl-6 ">
   <img
            style={{borderRadius:"3%",height:"45rem",zIndex:"-1",position:"relative"}} className="w-100"
           src="https://images.pexels.com/photos/4388167/pexels-photo-4388167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
 "
           alt="Third slide"
         />
-          <h2 className="mb-3  mt-3  container-fluid col-11 mt-5 display-5 fw-bold" style={{zIndex:"1",position: "absolute",color:"white",
-  top:"20%",
-  left: "6%"}}>Things to do<br/>
-  on your trip</h2>
+       
+         
+         <div className="  container-fluid col-11  display-5 fw-bold " style={{position:"relative",left:"7%",bottom:"70%",color:"white"}}>Things to do<br/>
+  on your trip<br/>
+  <button type="button" class="btn btn-light rounded" style={{width:"200px",marginTop:"20px"}}>Experiences</button>
+
   </div>
-  <div className="d-block col-sm-12 col-xl-6  mt-5">
+
+  </div>
+  <div className="d-block col-sm-12 col-xl-6  ">
          <img
            style={{borderRadius:"3%",height:"45rem"}} className="w-100"
           src="https://images.pexels.com/photos/3293854/pexels-photo-3293854.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350&w=240
 "
           alt="Third slide"
         />
-<h2 className="mb-3  mt-3  container-fluid col-11 mt-5 display-5 fw-bold" style={{zIndex:"1",position: "absolute",color:"white",
-  top:"20%",
-  left: "40%"}}>Things to do<br/>
-  on your trip</h2></div>
+<div className=" container-fluid col-11 display-5 fw-bold " style={{position:"relative",left:"7%",bottom:"70%",color:"white"}} >Things to do<br/>
+  on your trip<br/>
+  <button type="button" class="btn btn-light" style={{width:"200px",marginTop:"20px"}}>Online Experiences</button>
+
+  </div>
+
+  </div>
 
         </div></div>
 
