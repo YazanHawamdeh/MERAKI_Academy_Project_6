@@ -12,11 +12,14 @@ import {
   Button,
   Modal,
 } from "react-bootstrap";
+import Register from "./Register";
 
 const Navigation = () => {
   // const [active, setActive] = useState(false);
   const [show, setShow] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
+  const navigate = useNavigate();
  
   // window.onscroll = function () {
   //   if (window.scrollY >= 100) {
@@ -29,7 +32,7 @@ const Navigation = () => {
     <>
       <Navbar bg="light" expand="lg" className="px-4 fixed-top  ">
         <Container fluid>
-          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Brand href="/home">Good Night</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll " className="py-2 mt-2 ">
             {/* <Form className="d-flex ms-auto ">
@@ -90,7 +93,26 @@ const Navigation = () => {
                 <Login/>
               </Modal.Body>
               <Modal.Footer style={{justifyContent: "center"}} >
-              <div  class="mt-4 text-center "> Don't have an account? <a href="#" class="open-modal" data-target="signupModal" data-current="loginModal"> Sign up </a></div>
+              <div  class="mt-4 text-center "> Don't have an account? <span style={{color:"blue",cursor:"pointer",textDecorationLine:"underline"}} onClick={()=>{ setShowLogin(false);setShowSignup(true);} }> Sign up </span></div>
+              </Modal.Footer>
+            </Modal>
+            
+            <Modal
+              show={showSignup}
+              size="lg"
+              aria-labelledby="contained-modal-title-vcenter"
+              centered
+              onHide={() => setShowSignup(false)}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>Sign up</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <Register/>
+              </Modal.Body>
+              <Modal.Footer style={{justifyContent: "center"}} >
+              <div  class="mt-4 text-center "> you have an account? <span style={{color:"blue",cursor:"pointer",textDecorationLine:"underline"}} onClick={()=>{setShowSignup(false); setShowLogin(true)}
+              } class="open-modal" data-target="signupModal" data-current="loginModal"> Sign up </span></div>
               </Modal.Footer>
             </Modal>
             <Nav
@@ -99,7 +121,7 @@ const Navigation = () => {
               navbarScroll
             >
               <Nav.Link onClick={() => setShowLogin(true)}>Log in</Nav.Link>
-              <Nav.Link href="/cities">Sign up</Nav.Link>
+              <Nav.Link onClick={()=> setShowSignup(true)}>Sign up</Nav.Link>
 
               {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
           <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
