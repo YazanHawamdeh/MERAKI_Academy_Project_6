@@ -14,17 +14,23 @@ const WishList =()=>{
         }
     })
 //=========================================
-    const getMyWishLists= async()=>{
-        const headers = {
-            Authorization: `Bearer ${state.token}`,
-          };
-       await axios.get(`http://localhost:5000/wishList`,{headers}).then((result)=>{
-        dispatch(setWishList(result.data.results))
-        setShow(true)
-       }).catch((err)=>{
+const getMyWishLists = async () => {
+    const headers = {
+      Authorization: `Bearer ${state.token}`,
+    };
+    await axios
+      .get("http://localhost:5000/wishList", { headers })
+
+      .then((res) => {
+        if (res.data.results.length) {
+          dispatch(setWishList(res.data.results));
+          setShow(true);
+        }
+      })
+      .catch((err) => {
         setMessage("The Wishlists is empty");
-       })
-    }
+      });
+  };
 
     //=================================================
     const deleteWishListById = async(id)=>{
@@ -37,7 +43,7 @@ const WishList =()=>{
     useEffect(() => {
         getMyWishLists();
       }, []);
-      
+
     return(
         <div class="container-fluid col-11">
 

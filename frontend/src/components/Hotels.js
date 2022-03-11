@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setHotels } from '../reducer/hotels';
-
+import { addWishList } from '../reducer/wishLish';
 const Hotels=()=>{
 
     const [skip, setSkip] = useState(0);
@@ -36,6 +36,20 @@ const state=useSelector((state) => {
       });
   };
 
+  const addToWishList = async (id) => {
+    const headers = {
+      Authorization: `Bearer ${state.token}`,
+    };
+console.log(headers);
+    await axios
+      .post(`http://localhost:5000/wishList/${id}`, {}, { headers })
+      .then((res) => {
+        
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   ////////////////////////////////////////////////////////////////////////////////////
 
@@ -63,7 +77,7 @@ const state=useSelector((state) => {
                            <p >price: {hotel.price}</p>
                          </div></div>
                          <p >
-                          <p className='col'>{hotel.description}</p>
+                          <p className='col'onClick={()=>{addToWishList(hotel.id)}}>{hotel.description} </p>
                          </p>
                        </div>
                

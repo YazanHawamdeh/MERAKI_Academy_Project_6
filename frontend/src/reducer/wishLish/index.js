@@ -19,7 +19,7 @@ switch (type) {
            case "DELETE_WISHLIST":
            return {
             ...state,
-            hotels: state.wishList.filter((element) => {
+            wishList: state.wishList.filter((element) => {
               return element.id != payload;
             }),
           };
