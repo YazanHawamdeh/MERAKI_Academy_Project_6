@@ -7,7 +7,7 @@ import { AiOutlineMail } from 'react-icons/ai';
 const Footer =()=>{
 return(
 <footer class="page-footer shadow bg-white rounded mt-4">
-<div class="container">
+<div class="container-fluid col-11">
 <div class="row justify-content-between py-4 mt-4">
 <div class="col-md-3 col-6 mt-3 mt-md-0">
 <h6> About </h6>
@@ -91,16 +91,16 @@ return(
 <div class="support-container ms-3 mt-3 mb-3 mb-md-0">
 <div class="mt-2 text-nowrap">
 < AiOutlineMail/>
-<a class="ms-2" href="tel"> alayedmohammed0@gmail.com </a>
+<a class="ms-2" href="tel"> alayedmohammed0 </a>
 </div>
 <div class="mt-2 text-nowrap">
 < AiOutlineMail/>
-<a class="ms-2" href="tel"> hawamdey@gmail.com
+<a class="ms-2" href="tel"> hawamdey
  </a>
 </div>
 <div class="mt-2 text-nowrap">
 < AiOutlineMail/>
-<a class="ms-2" href="tel"> omar.haamdan@gmail.com
+<a class="ms-2" href="tel"> omar.haamdan
  </a>
 </div>
 
