@@ -122,11 +122,13 @@ const Home = () => {
 
         <div className='container-fluid col-11'>
 <div className='row'>
-  
-  <h1 className='col-lg-4'>Shop Airbnb<br/>
-gift cards</h1>
-        <div className='col-lg-8 '><picture><source srcset="https://a0.muscache.com/im/pictures/1ca4a497-ba40-4429-be1c-ac6abe4209c6.jpg?im_w=1200 1x, https://a0.muscache.com/im/pictures/1ca4a497-ba40-4429-be1c-ac6abe4209c6.jpg?im_w=2560 2x" media="(min-width: 1440px)"/><source srcset="https://a0.muscache.com/im/pictures/204eea7c-fd71-4316-b056-7e2cc664351d.jpg?im_w=720 1x, https://a0.muscache.com/im/pictures/204eea7c-fd71-4316-b056-7e2cc664351d.jpg?im_w=1440 2x" media="(min-width: 744px)"/><img 
-       className='w-100' aria-hidden="true" alt="" src="https://a0.muscache.com/im/pictures/09c5b264-32db-4168-8204-9ce035c1b6ef.jpg?im_q=highq&amp;im_w=720" elementtiming="LCP-target" /></picture></div>
+  <div className='col-lg-4 col-sm-4 mb-5   container-fluid col-11 display-5'>
+  <p className='  mb-4' style={{fontSize:"60px",fontWeight:"600"}}>Shop Airbnb<br/>
+gift cards</p>
+<button type="button" class="btn btn-dark mb-5 rounded" style={{padding:"11px 17px",fontSize:"20px"}}>Learn more</button>
+</div>
+      
+        <img className='col-lg-8 col-sm-8' src='	https://a0.muscache.com/im/pictures/1ca4a497-ba40-4429-be1c-ac6abe4209c6.jpg?im_w=1200'></img>
 
         </div></div>
     </div>
