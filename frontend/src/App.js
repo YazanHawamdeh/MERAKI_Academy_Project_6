@@ -12,7 +12,7 @@ import Cities from "./components/Cities";
 
 import "./App.css";
 
-// import WishList from "./components/WishList";
+import WishList from "./components/WishList";
 
 
 
@@ -30,7 +30,7 @@ const App = () => {
         
 
         <Route path="/hotels" element={<Hotels />} />
-        {/* <Route path="/wishList" element={<WishList />} /> */}
+        <Route path="/wishList" element={<WishList />} />
 
 
       </Routes>
