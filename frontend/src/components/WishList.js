@@ -9,7 +9,7 @@ const WishList =()=>{
     const dispatch =useDispatch()
     const state= useSelector((state)=>{
         return {
-            wishList :state.wishListReducer.WishList,
+            wishList :state.wishListReducer.wgitishList,
             token:state.loginReducer.token
         }
     })
@@ -18,11 +18,13 @@ const getMyWishLists = async () => {
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
+    console.log(headers);
     await axios
-      .get("http://localhost:5000/wishList", { headers })
+      .get("http://localhost:5000/wishList", {headers})
 
       .then((res) => {
         if (res.data.results.length) {
+            console.log(res.data.results);
           dispatch(setWishList(res.data.results));
           setShow(true);
         }
@@ -44,6 +46,7 @@ const getMyWishLists = async () => {
         getMyWishLists();
       }, []);
 
+      console.log(state.wishList);
     return(
         <div class="container-fluid col-11">
 
