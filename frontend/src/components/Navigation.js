@@ -2,6 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { link, useNavigate } from "react-router-dom";
 import Login from "./Login";
+import { logout } from "../reducer/login/index";
+import { useDispatch} from "react-redux";
+
+
 import {
   Container,
   Navbar,
@@ -13,8 +17,11 @@ import {
   Modal,
 } from "react-bootstrap";
 import Register from "./Register";
+import { MdLogout } from "react-icons/md"
 
 const Navigation = () => {
+  const dispatch = useDispatch();
+  const history = useNavigate();
   // const [active, setActive] = useState(false);
   const [show, setShow] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
@@ -122,6 +129,18 @@ const Navigation = () => {
             >
               <Nav.Link onClick={() => setShowLogin(true)}>Log in</Nav.Link>
               <Nav.Link onClick={()=> setShowSignup(true)}>Sign up</Nav.Link>
+              <Nav.Link
+
+className="auth-button"
+onClick={() => {
+  dispatch(logout());
+  localStorage.clear();
+  history("/login");
+}}
+to="/login"
+>
+<MdLogout size={25} />
+</Nav.Link>
 
               {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
           <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
