@@ -9,7 +9,7 @@ const WishList =()=>{
     const dispatch =useDispatch()
     const state= useSelector((state)=>{
         return {
-            wishList :state.wishListReducer.wgitishList,
+            wishList :state.wishListReducer.wishList,
             token:state.loginReducer.token
         }
     })
@@ -46,7 +46,7 @@ const getMyWishLists = async () => {
         getMyWishLists();
       }, []);
 
-      console.log(state.wishList);
+     
     return(
         <div class="container-fluid col-11">
 
