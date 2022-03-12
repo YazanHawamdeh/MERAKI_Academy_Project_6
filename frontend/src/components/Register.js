@@ -22,6 +22,8 @@ const Register = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+
   const role_id = "1";
   const [message, setMessage] = useState("");
 
@@ -30,15 +32,16 @@ const Register = () => {
   const addNewUser = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post("/users", {
+      const result = await axios.post("http://localhost:5000/users", {
         userName,
         email,
         password,
+        phone,
         role_id,
       });
       if (result.data.success) {
         setMessage("The user has been created successfully");
-        navigate("/login");
+        navigate("/home");
       } else throw Error;
     } catch (error) {
       if (error.response && error.response.data) {
@@ -51,13 +54,40 @@ const Register = () => {
   // =================================================================
 
   return (
+    <div>
+      <div className="form-floating">
+        <input
+          type="text"
+          name="name"
+          className="form-control"
+          placeholder="Name"
+          onChange={(e) => {
+            setUserName(e.target.value);
+          }}
+        />
+        <label> Name </label>
+      </div>
 
-<div>
-      <div class="form-floating">
+      <br />
+      <div className="form-floating">
+        <input
+          type="text"
+          name="phone"
+          className="form-control"
+          placeholder="phone"
+          onChange={(e) => {
+            setPhone(e.target.value);
+          }}
+        />
+        <label> phone </label>
+      </div>
+
+      <br />
+      <div className="form-floating">
         <input
           type="text"
           name="login_email"
-          class="form-control"
+          className="form-control"
           placeholder="Email"
           onChange={(e) => {
             setEmail(e.target.value);
@@ -65,13 +95,15 @@ const Register = () => {
         />
         <label> Email </label>
       </div>
-      <span class="text-danger"></span>
-      <div class="password-with-toggler input-group floating-input-group">
-        <div class="form-floating flex-grow-1">
+
+      <br />
+
+      <div className="password-with-toggler input-group floating-input-group">
+        <div className="form-floating flex-grow-1">
           <input
             type={showPassword ? "text" : "password"}
             name="login_password"
-            class="password form-control"
+            className="password form-control"
             placeholder="Password"
             onChange={(e) => {
               setPassword(e.target.value);
@@ -79,7 +111,7 @@ const Register = () => {
           />
           <label> Password </label>
         </div>
-        <span class="input-group-text">
+        <span className="input-group-text">
           {showPassword ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +133,7 @@ const Register = () => {
               height="16"
               fill="currentColor"
               onClick={() => setShowPassword(true)}
-              class="bi bi-eye-slash-fill"
+              className="bi bi-eye-slash-fill"
               style={{ cursor: "pointer" }}
               viewBox="0 0 16 16"
             >
@@ -111,44 +143,43 @@ const Register = () => {
           )}
         </span>
       </div>
-      <span class="text-danger"></span>
-      <div class="form-check">
+
+      <br />
+
+      <div className="form-check">
         <input
           type="checkbox"
           name="remember_me"
           id="remember_me"
-          class="form-check-input"
+          className="form-check-input"
         />
-        <label class="form-check-label" for="remember_me">
-          Remember Me
+        <label className="form-check-label" for="remember_me">
+          By Clicking Signup, I agree to Good Night{" "}
+          <span
+            style={{
+              color: "blue",
+              cursor: "pointer",
+              textDecorationLine: "underline",
+            }}
+          >
+            Terms Of Services .
+          </span>
         </label>
-        <a
-          href="#"
-          class="float-end open-modal"
-          data-current="loginModal"
-          data-target="forgotPasswordModal"
-        >
-          Forgot Password
-        </a>
       </div>
-      <div class="form-group mt-4">
+      <div className="form-group mt-4">
         <button
           type="submit"
-          class="btn btn-primary d-flex w-100 justify-content-center"
+          className="btn btn-primary d-flex w-100 justify-content-center"
+          onClick={addNewUser}
         >
-          Log in
+          Sign up
         </button>
-        
+      </div>
+      <br/>
+      <div className="message">
+        {message ? <p className="alert alert-success">{message}</p> : <></>}
       </div>
     </div>
-
-
-
-    // <>
-     
-
-
-    
   );
 };
 
