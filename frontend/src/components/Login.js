@@ -67,7 +67,7 @@ const Login = () => {
 
   const addNewUserWithGoogle = async (username, email) => {
     try {
-      const result = await axios.post("/users", {
+      const result = await axios.post("http://localhost:5000/users", {
         userName: username,
         email: email,
         password: "123",
@@ -133,15 +133,15 @@ const Login = () => {
     //
     //       </div>
     //     </div>
-    //     <div className="message"> </div>
+    //
     //   </div>
     // </div>
     <div>
-      <div class="form-floating">
+      <div className="form-floating">
         <input
           type="text"
           name="login_email"
-          class="form-control"
+          className="form-control"
           placeholder="Email"
           onChange={(e) => {
             setEmail(e.target.value);
@@ -149,13 +149,13 @@ const Login = () => {
         />
         <label> Email </label>
       </div>
-      <span class="text-danger"></span>
-      <div class="password-with-toggler input-group floating-input-group">
-        <div class="form-floating flex-grow-1">
+      <br />
+      <div className="password-with-toggler input-group floating-input-group">
+        <div className="form-floating flex-grow-1">
           <input
             type={showPassword ? "text" : "password"}
             name="login_password"
-            class="password form-control"
+            className="password form-control"
             placeholder="Password"
             onChange={(e) => {
               setPassword(e.target.value);
@@ -163,7 +163,7 @@ const Login = () => {
           />
           <label> Password </label>
         </div>
-        <span class="input-group-text">
+        <span className="input-group-text">
           {showPassword ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -185,7 +185,7 @@ const Login = () => {
               height="16"
               fill="currentColor"
               onClick={() => setShowPassword(true)}
-              class="bi bi-eye-slash-fill"
+              className="bi bi-eye-slash-fill"
               style={{ cursor: "pointer" }}
               viewBox="0 0 16 16"
             >
@@ -195,36 +195,42 @@ const Login = () => {
           )}
         </span>
       </div>
-      <span class="text-danger"></span>
-      <div class="form-check">
+      <span className="text-danger"></span>
+      <div className="form-check">
         <input
           type="checkbox"
           name="remember_me"
           id="remember_me"
-          class="form-check-input"
+          className="form-check-input"
         />
-        <label class="form-check-label" for="remember_me">
+        <label className="form-check-label" for="remember_me">
           Remember Me
         </label>
         <a
           href="#"
-          class="float-end open-modal"
+          className="float-end open-modal"
           data-current="loginModal"
           data-target="forgotPasswordModal"
         >
           Forgot Password
         </a>
       </div>
-      <div class="form-group mt-4">
+      <div className="form-group mt-4">
         <button
-        onClick={()=>{loginUser()}}
+          onClick={() => {
+            loginUser();
+          }}
           type="submit"
-          class="btn btn-primary d-flex w-100 justify-content-center"
+          data-dismiss="modal"
+          className="btn btn-primary d-flex w-100 justify-content-center"
         >
           Log in
         </button>
+        <div className="line-separator my-2 d-flex align-items-center">
+          <span className="mx-2"> or </span>
+        </div>
         <GoogleLogin
-          className="googleButton"
+          className="googleButton w-100 text-center justify-content-center"
           clientId="284516947033-o1so93qbr9524dea3slu3ik2j01aqtpp.apps.googleusercontent.com"
           buttonText="Login with Google"
           onSuccess={onSuccess}
@@ -232,6 +238,7 @@ const Login = () => {
           cookiePolicy={"single_host_origin"}
         />
       </div>
+      <div className="message"> </div>
     </div>
   );
 };
