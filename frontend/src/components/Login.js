@@ -44,7 +44,7 @@ const Login = () => {
     //show backend server
     axios
       //send data from body object
-      .post("/login", body)
+      .post("http://localhost:5000/login", body)
       .then((result) => {
         dispatch(login(result.data.token));
         localStorage.setItem("userToken", result.data.token);
@@ -217,6 +217,7 @@ const Login = () => {
       </div>
       <div class="form-group mt-4">
         <button
+        onClick={()=>{loginUser()}}
           type="submit"
           class="btn btn-primary d-flex w-100 justify-content-center"
         >
