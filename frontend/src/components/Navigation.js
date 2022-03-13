@@ -27,13 +27,8 @@ const Navigation = () => {
   const [showSignup, setShowSignup] = useState(false);
   const navigate = useNavigate();
 
-  // window.onscroll = function () {
-  //   if (window.scrollY >= 100) {
-  //     setActive(true);
-  //   } else {
-  //     setActive(false);
-  //   }
-  // };
+  
+
   return (
     <>
       <Navbar bg="light" expand="lg" className="px-4 fixed-top  ">
@@ -96,7 +91,7 @@ const Navigation = () => {
                 <Modal.Title>Login</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <Login />
+                <Login setShowLogin={setShowLogin} />
               </Modal.Body>
               <Modal.Footer style={{ justifyContent: "center" }}>
                 <div className="mt-4 text-center ">
