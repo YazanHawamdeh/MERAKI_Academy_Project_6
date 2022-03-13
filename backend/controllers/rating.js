@@ -22,6 +22,25 @@ const createNewRating =(req,res)=>{
         })
     })
 }
+
+const getRatings =(req,res)=>{
+    const query ='SELECT * FROM ratings WHERE hotels_id=? AND is_deleted=0'
+    const hotel_id =[req.params.id]
+    connection.query(query,hotel_id,(err,result)=>{
+        if (err) {
+            res.json({ success: false, massege: "the rating not found", err: err });
+            res.status(404);
+          } else {
+            res.json({ success: true, massege: `the ratings `,results: result });
+            res.status(200);
+          }
+       
+    })
+}
+
+
+
 module.exports={
-    createNewRating
+    createNewRating,
+    getRatings 
 }
