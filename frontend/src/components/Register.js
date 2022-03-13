@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 // =================================================================
 
-const Register = () => {
+const Register = ({setShowLogin,setShowSignup}) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -42,6 +42,9 @@ const Register = () => {
       if (result.data.success) {
         setMessage("The user has been created successfully");
         navigate("/home");
+        setShowSignup(false);
+        setShowLogin(true);
+
       } else throw Error;
     } catch (error) {
       if (error.response && error.response.data) {
@@ -169,7 +172,7 @@ const Register = () => {
       <div className="form-group mt-4">
         <button
           type="submit"
-          className="btn btn-primary d-flex w-100 justify-content-center"
+          className="btn btn-success d-flex w-100 justify-content-center"
           onClick={addNewUser}
         >
           Sign up

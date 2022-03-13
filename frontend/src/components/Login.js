@@ -61,6 +61,7 @@ const Login = ( {setShowLogin}) => {
       })
       .catch((err) => {
         //if error
+        console.log(err.response.data);
         setmessage(err.response?.data?.message);
       });
 
@@ -88,56 +89,6 @@ const Login = ( {setShowLogin}) => {
     }
   };
   return (
-    // <div className="main-continar">
-    //   <div className="login-continar">
-    //     <div className="login-register">
-    //       <div className="inner">
-    //         <span id="login">Login</span>
-    //         <span
-    //           id="register"
-    //           onClick={() => {
-    //             navigate("/register");
-    //           }}
-    //         >
-    //           Register
-    //         </span>
-    //       </div>
-    //     </div>
-    //     <div className="login-box-out">
-    //       <div className="login-box-inner">
-    //         <input
-    //           type="email"
-    //           onChange={(e) => {
-    //             setEmail(e.target.value);
-    //           }}
-    //           placeholder=" Email "
-    //           required=""
-    //         />
-    //         <input
-    //           type="password"
-    //           onChange={(e) => {
-    //             setPassword(e.target.value);
-    //           }}
-    //           placeholder=" Password"
-    //           required=""
-    //         />
-    //         {message ? <p className="Error">{message}</p> : <></>}{" "}
-    //         <div className="button-signIn">
-    //           <button onClick={loginUser} id="signIn">
-    //             Login
-    //           </button>
-    //         </div>
-    //         <br />
-    //         <div className="orSection">
-    //           <hr />
-    //           <button>OR</button>
-    //         </div>
-    //
-    //       </div>
-    //     </div>
-    //
-    //   </div>
-    // </div>
     <div>
       <div className="form-floating">
         <input
@@ -226,10 +177,15 @@ const Login = ( {setShowLogin}) => {
             loginUser();
             
           }}
-          className="btn btn-primary d-flex w-100 justify-content-center"
+          className="btn btn-success d-flex w-100 justify-content-center"
         >
           Log in
         </button>
+        <br/>
+
+        {message && <div className="alert alert-danger">{message}</div>}
+    
+
         <div className="line-separator my-2 d-flex align-items-center">
           <span className="mx-2"> or </span>
         </div>
@@ -242,7 +198,6 @@ const Login = ( {setShowLogin}) => {
           cookiePolicy={"single_host_origin"}
         />
       </div>
-      <div className="message"> </div>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { link, useNavigate } from "react-router-dom";
 import Login from "./Login";
 import { logout } from "../reducer/login/index";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   Container,
@@ -19,6 +19,12 @@ import Register from "./Register";
 import { MdLogout } from "react-icons/md";
 
 const Navigation = () => {
+  const state = useSelector((state) => {
+    return {
+      isLoggedIn: state.loginReducer.isLoggedIn,
+    };
+  });
+
   const dispatch = useDispatch();
   const history = useNavigate();
   // const [active, setActive] = useState(false);
@@ -26,8 +32,6 @@ const Navigation = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
   const navigate = useNavigate();
-
-  
 
   return (
     <>
@@ -126,12 +130,14 @@ const Navigation = () => {
                 <Modal.Title>Sign up</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <Register />
+                <Register
+                  setShowSignup={setShowSignup}
+                  setShowLogin={setShowLogin}
+                />
               </Modal.Body>
               <Modal.Footer style={{ justifyContent: "center" }}>
                 <div className="mt-4 text-center ">
-                  {" "}
-                  Already have an account?{" "}
+                  Already have an account?
                   <span
                     style={{
                       color: "blue",
@@ -146,8 +152,7 @@ const Navigation = () => {
                     data-target="signupModal"
                     data-current="loginModal"
                   >
-                    {" "}
-                    Log in{" "}
+                    Log in
                   </span>
                 </div>
               </Modal.Footer>
@@ -157,19 +162,30 @@ const Navigation = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link onClick={() => setShowLogin(true)}>Log in</Nav.Link>
-              <Nav.Link onClick={() => setShowSignup(true)}>Sign up</Nav.Link>
-              <Nav.Link
-                className="auth-button"
-                onClick={() => {
-                  dispatch(logout());
-                  localStorage.clear();
-                  history("/login");
-                }}
-                to="/login"
-              >
-                <MdLogout size={25} />
-              </Nav.Link>
+              {!state.isLoggedIn ? (
+                <>
+                  <Nav.Link onClick={() => setShowLogin(true)}>Log in</Nav.Link>
+                  <Nav.Link onClick={() => setShowSignup(true)}>
+                    Sign up
+                  </Nav.Link>
+                </>
+              ) : (
+                <>
+                  <Nav.Link >{localStorage.getItem("userName")}</Nav.Link>
+
+                  <Nav.Link
+                    className="auth-button"
+                    onClick={() => {
+                      dispatch(logout());
+                      localStorage.clear();
+                      history("/home");
+                    }}
+                    to="/home"
+                  >
+                    <MdLogout size={25} />
+                  </Nav.Link>
+                </>
+              )}
 
               {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
           <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
