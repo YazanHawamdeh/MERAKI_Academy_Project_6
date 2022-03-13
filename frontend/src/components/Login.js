@@ -10,7 +10,7 @@ import { login } from "../reducer/login/index";
 import { useDispatch } from "react-redux";
 //********************** */
 
-const Login = () => {
+const Login = ( {setShowLogin}) => {
   const [showSignup, setShowSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const onSuccess = (response) => {
@@ -55,6 +55,8 @@ const Login = () => {
           navigate("/ProductsTable");
         } else {
           navigate("/home");
+          setShowLogin(false)
+          
         }
       })
       .catch((err) => {
@@ -217,11 +219,13 @@ const Login = () => {
       </div>
       <div className="form-group mt-4">
         <button
-          onClick={() => {
-            loginUser();
-          }}
+          
           type="submit"
           data-dismiss="modal"
+          onClick={() => {
+            loginUser();
+            
+          }}
           className="btn btn-primary d-flex w-100 justify-content-center"
         >
           Log in
