@@ -13,6 +13,7 @@ import Cities from "./components/Cities";
 import "./App.css";
 
 import WishList from "./components/WishList";
+import Detail from './components/Detail/Detail';
 
 
 
@@ -31,6 +32,7 @@ const App = () => {
 
         <Route path="/hotels" element={<Hotels />} />
         <Route path="/wishList" element={<WishList />} />
+        <Route path="/detail/:id" element={<Detail />} />
 
 
       </Routes>
