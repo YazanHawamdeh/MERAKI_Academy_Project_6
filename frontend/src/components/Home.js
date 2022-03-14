@@ -34,7 +34,8 @@ const Home = () => {
 
   return (
     <div>
-            <h1 style={{position:"flex",justifyContent:"center",alignItems:"center",zIndex:"1"}}>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</h1>
+
+            {/* <p className='col-md-12 d-flex align-items-center justify-content-center mt-5'>uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu</p> */}
 
       <div >
       <Carousel activeIndex={index} onSelect={handleSelect} >
@@ -54,7 +55,7 @@ const Home = () => {
         <Carousel.Item interval={3000}>
           <img
             className="d-block w-100" style={{ height: "50rem" }}
-            src="https://images.pexels.com/photos/5104057/pexels-photo-5104057.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+            src="https://images.pexels.com/photos/3682238/pexels-photo-3682238.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
           "
             alt="Second slide"
           />
@@ -64,7 +65,7 @@ const Home = () => {
         <Carousel.Item interval={3000}>
           <img
             className="d-block w-100" style={{ height: "50rem" }}
-            src="https://images.pexels.com/photos/5104057/pexels-photo-5104057.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+            src="https://images.pexels.com/photos/2017802/pexels-photo-2017802.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
 "
             alt="Third slide"
           />
@@ -146,7 +147,7 @@ gift cards</p>
   className='w-100 rounded'
    alt='error'/>
 
-  <div class="community-banner-name mt-2"><h3 class="ellipsis text-center my-3">Meet Andrew</h3><p class="text-center text-gray" title="We've used Hyra over a handful of times and it's been great every single time.  Definitely recommend.">We've used Hyra over a handful of times and it's been great every single time.  Definitely recommend.</p></div></div>
+  <div class="community-banner-name mt-2"><h3 class="ellipsis text-center my-3">Meet Yazan</h3><p class="text-center text-gray" title="We've used Hyra over a handful of times and it's been great every single time.  Definitely recommend.">We've used Hyra over a handful of times and it's been great every single time.  Definitely recommend.</p></div></div>
 
 
 
