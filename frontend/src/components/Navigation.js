@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Login from "./Login";
 import { logout } from "../reducer/login/index";
 import { useDispatch, useSelector } from "react-redux";
+
+import { BsSearch } from "react-icons/bs";
 
 import {
   Container,
@@ -13,12 +15,13 @@ import {
   Form,
   FormControl,
   Button,
+  FloatingLabel,
   Modal,
 } from "react-bootstrap";
 import Register from "./Register";
 import { MdLogout } from "react-icons/md";
 
-const Navigation = () => {
+const Navigation = ({ setHotelName }) => {
   const state = useSelector((state) => {
     return {
       isLoggedIn: state.loginReducer.isLoggedIn,
@@ -77,11 +80,22 @@ const Navigation = () => {
             <Modal
               show={show}
               fullscreen={true}
-              style={{ maxHeight: "30%" }}
+              style={{ maxHeight: "18%" }}
               onHide={() => setShow(false)}
             >
-              <Modal.Header closeButton></Modal.Header>
-              <Modal.Body></Modal.Body>
+              {/* <Modal.Header closeButton>Find Your Place</Modal.Header> */}
+              <Modal.Body>
+                <FloatingLabel
+                  controlId="floatingInput"
+                  label="where do you want to go?"
+                  className=" mb-3 w-100"
+                >
+                  <Form.Control className="w-50"  type="search" placeholder="..." />
+                  <Link className="searchIcon" to="/search">
+                    <BsSearch variant="success" />
+                  </Link>
+                </FloatingLabel>
+              </Modal.Body>
             </Modal>
 
             <Modal
@@ -171,7 +185,7 @@ const Navigation = () => {
                 </>
               ) : (
                 <>
-                  <Nav.Link >{localStorage.getItem("userName")}</Nav.Link>
+                  <Nav.Link>{localStorage.getItem("userName")}</Nav.Link>
 
                   <Nav.Link
                     className="auth-button"
