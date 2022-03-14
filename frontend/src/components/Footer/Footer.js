@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Container,Row,Col} from "react-bootstrap";
 import "./footer.css";
 import { AiOutlineMail } from 'react-icons/ai';
+import emailjs from "emailjs-com";
+import{ init } from '@emailjs/browser';
+init("vkM6vzKr7M-G7h5nE");
 
 
 const Footer =()=>{
+    const [txtFeedBack, setTxtFeedBack] = useState("");
+    const form = useRef();
+
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        emailjs.send("service_ll4afdg","template_yvm85b5",
+        {
+            to_name: "crypto",
+            message: txtFeedBack,
+
+            },"vkM6vzKr7M-G7h5nE")
+          .then(
+            (response) => {
+              console.log("SUCCESS!", response.status, response.text);
+            },
+            (err) => {
+              console.log("FAILED...", err);
+            }
+          );
+      };
 return(
 <footer class="page-footer shadow bg-white rounded mt-4">
 <div class="container-fluid col-11">
@@ -38,7 +62,7 @@ return(
 </ul>
 </div>
 <div class="col-md-3 col-6 mt-3 mt-md-0">
-<h6> Community </h6>
+{/* <h6> Community </h6>
 <ul class="list-unstyled">
 <li>
 <a href="none" class="common-link"> Diversity &amp; Belonging </a>
@@ -49,7 +73,38 @@ return(
 <li>
 <a href="none" class="common-link"> Frontline Stays </a>
 </li>
-</ul>
+</ul> */}
+
+<div >
+          <h4>any suggestion</h4>
+
+          <br />
+          <form ref={form} onSubmit={sendEmail} style={{display:'flex'}}>
+          <input type="text" class="form-control" placeholder="suggestion"   onChange={(e) => {
+                setTxtFeedBack(e.target.value);
+              }}
+              style={{width:'200px'}} aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+
+          
+            {/* <button
+              className="go"
+              style={{padding:'7px',borderRadius:'5%',border:'1px solid'}}
+
+            //   onClick={() => {
+            //     Swal.fire({
+            //       icon: "success",
+            //       title: "massage has been sent",
+            //       showConfirmButton: false,
+            //       timer: 1500,
+            //     });
+            //   }}
+            >
+              send
+            </button> */}
+            <button class="btn btn-primary" href="#" role="button">send</button>
+
+          </form>
+        </div>
 </div>
 <div class="col-md-3 col-12 mt-3 mt-md-0">
 <div class="d-flex flex-wrap store-section justify-content-center justify-content-md-end connect-image-wrapper">
