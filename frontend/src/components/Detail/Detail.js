@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col, Card,Carousel } from "react-bootstrap";
 import "./detail.css";
+import Rating from "./Rating";
 
 const Detail = () => {
   let { id } = useParams();
@@ -50,7 +51,7 @@ const Detail = () => {
 
     <Container   >
     <Row className="col-12">
-    <h2 className="ms-2"> rating</h2> 
+    <h2 className="ms-2"> <Rating/></h2> 
     </Row >
   <Row >
 
