@@ -23,7 +23,8 @@ const App = () => {
 
   return (
     <div className="App">
-  <Navigation setProductName={setHotelName}/>
+     
+  <Navigation setHotelName={setHotelName}/>
 
       <Routes>
 
@@ -34,8 +35,8 @@ const App = () => {
         <Route path="/hotels" element={<Hotels />} />
         <Route path="/wishList" element={<WishList />} />
 
-        <Route path="/search" element={<Search productName={hotelName} />} />
-
+        <Route path="/search" element={<Search hotelName={hotelName} />} />
+       
       </Routes>
       <Footer />
 
