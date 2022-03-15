@@ -38,9 +38,10 @@ const Navigation = ({ setHotelName }) => {
 
   return (
     <>
-      <Navbar bg="light" expand="lg" className="px-4 fixed-top  ">
+      <Navbar bg="light" expand="lg" className="px-4 py-0 fixed-top  ">
         <Container fluid>
-          <Navbar.Brand href="/home">Good Night</Navbar.Brand>
+       
+          <Navbar.Brand href="/home"> <img src="https://res.cloudinary.com/cryptoteam/image/upload/v1647340869/g4jvlsgejyfssvm95fud.svg" width={165} height={50} alt="Good Night"/></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll " className="py-2 mt-2 ">
             {/* <Form className="d-flex ms-auto ">
@@ -84,19 +85,24 @@ const Navigation = ({ setHotelName }) => {
               onHide={() => setShow(false)}
             >
               {/* <Modal.Header closeButton>Find Your Place</Modal.Header> */}
-              <Modal.Body>
+              <Modal.Body >
                 <FloatingLabel
                   controlId="floatingInput"
                   label="where do you want to go?"
                   className=" mb-3 w-100"
                 >
+                  
+                   
                   <Form.Control  onChange={(e) => {
                    
                       setHotelName(e.target.value);
                     }}  className="w-50"  type="search" placeholder="..." />
-                  <Link className="searchIcon" to="/search">
+
+
+                 <Link className="searchIcon" to="/search">
                     <BsSearch variant="success" />
                   </Link>
+
                 </FloatingLabel>
               </Modal.Body>
             </Modal>
@@ -181,17 +187,18 @@ const Navigation = ({ setHotelName }) => {
             >
               {!state.isLoggedIn ? (
                 <>
-                  <Nav.Link onClick={() => setShowLogin(true)}>Log in</Nav.Link>
-                  <Nav.Link onClick={() => setShowSignup(true)}>
+                  <Nav.Link className="fw-bold" style={{color:"#198754"}} onClick={() => setShowLogin(true)}>Log in</Nav.Link>
+                  <Nav.Link className="fw-bold" style={{color:"#198754"}} onClick={() => setShowSignup(true)}>
                     Sign up
                   </Nav.Link>
                 </>
               ) : (
                 <>
-                  <Nav.Link>{localStorage.getItem("userName")}</Nav.Link>
+                  <Nav.Link className="fw-bold" style={{color:"#198754"}}>{localStorage.getItem("userName")}</Nav.Link>
 
                   <Nav.Link
                     className="auth-button"
+                   
                     onClick={() => {
                       dispatch(logout());
                       localStorage.clear();
@@ -199,7 +206,7 @@ const Navigation = ({ setHotelName }) => {
                     }}
                     to="/home"
                   >
-                    <MdLogout size={25} />
+                    <MdLogout style={{color:"#198754"}} size={23} />
                   </Nav.Link>
                 </>
               )}
