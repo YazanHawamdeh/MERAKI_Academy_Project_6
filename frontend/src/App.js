@@ -15,14 +15,16 @@ import "./App.css";
 import WishList from "./components/WishList";
 import Detail from './components/Detail/Detail';
 
-
+import Search from "./components/Search/Search";
 
 //===============================================================
 
 const App = () => {
+  const [hotelName, setHotelName] = useState("");
+
   return (
     <div className="App">
-  <Navigation />
+  <Navigation setProductName={setHotelName}/>
 
       <Routes>
 
@@ -34,6 +36,7 @@ const App = () => {
         <Route path="/wishList" element={<WishList />} />
         <Route path="/detail/:id" element={<Detail />} />
 
+        <Route path="/search" element={<Search productName={hotelName} />} />
 
       </Routes>
       <Footer />
