@@ -90,7 +90,10 @@ const Navigation = ({ setHotelName }) => {
                   label="where do you want to go?"
                   className=" mb-3 w-100"
                 >
-                  <Form.Control className="w-50"  type="search" placeholder="..." />
+                  <Form.Control  onChange={(e) => {
+                   
+                      setHotelName(e.target.value);
+                    }}  className="w-50"  type="search" placeholder="..." />
                   <Link className="searchIcon" to="/search">
                     <BsSearch variant="success" />
                   </Link>
