@@ -46,7 +46,7 @@ const Detail = () => {
   };
   console.log(images);
 
-  return (
+  return ( 
 <div  className="container-fluid col-11" style={{ marginTop: "100px" }}>
   
 
@@ -82,10 +82,11 @@ const Detail = () => {
 </Carousel>
 
 </Col>
-<div className="ms-2 mt-1 col-6" style={{ display:"flex",justifyContent:"space-between"} }>
-<p className="fs-4" > { show&&hotel[0].description}</p> 
-<p className="fs-4"> {show&&hotel[0].price}$/night</p> 
-</div>
+{show&&<div className="ms-2 mt-1 col-6" style={{ display:"flex",justifyContent:"space-between"} }>
+<p className="fs-4" > { hotel[0].guests} { hotel[0].bedrooms} {hotel[0].beds}  { hotel[0].bathrooms}</p> 
+<p className="fs-4"> {hotel[0].price}$/night</p> 
+</div>}
+
 
   </Row>
   <Comment id={show&&hotel[0].id} />

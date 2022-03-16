@@ -66,7 +66,7 @@ const getMyWishLists = async () => {
                            <p >price: {hotel.price}</p>
                          </div></div>
                          <p >
-                          <p className='col'>{hotel.description}</p>
+                          <p className='col'>addToWishList</p>
                          </p>
                        </div>
                
