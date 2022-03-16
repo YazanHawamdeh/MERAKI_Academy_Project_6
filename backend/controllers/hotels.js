@@ -1,9 +1,21 @@
 const connection = require("../db/db");
 
 const createNewHotels = (req, res) => {
-  const query = `INSERT INTO hotels (hotelName,image,image2,image3,image4,image5,description,city_id,price) VALUES (?,?,?,?,?,?,?,?,?)`;
-  const { hotelName, image, image2, image3, image4, image5, description,city_id, price } =
-    req.body;
+  const query = `INSERT INTO hotels (hotelName,image,image2,image3,image4,image5,guests,bedrooms,beds,bathrooms,city_id,price) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const {
+    hotelName,
+    image,
+    image2,
+    image3,
+    image4,
+    image5,
+    guests,
+    bedrooms,
+    beds,
+    bathrooms,
+    city_id,
+    price,
+  } = req.body;
   const data = [
     hotelName,
     image,
@@ -11,7 +23,10 @@ const createNewHotels = (req, res) => {
     image3,
     image4,
     image5,
-    description,
+    guests,
+    bedrooms,
+    beds,
+    bathrooms,
     city_id,
     price,
   ];
@@ -48,63 +63,47 @@ const getAllHotels = (req, res) => {
 };
 //===========================================
 const gethotelByName = (req, res) => {
+  const query = `SELECT * FROM hotels WHERE hotelName=? AND is_deleted=0`;
+  const hotel = [req.query.hotelName];
 
-    const query = `SELECT * FROM hotels WHERE hotelName=? AND is_deleted=0`;
-    const hotel = [req.query.hotelName];
-
-
-    connection.query(query, hotel, (err, result) => {
-        if (err) {
-
-            res.json({ success: false, massege: "the hotel not found", err: err })
-            res.status(404)
-
-        }
-        else {
-            res.json({ success: true, massege: `the hotel `, result: result })
-            res.status(200)
-
-        }
-    })
-}
+  connection.query(query, hotel, (err, result) => {
+    if (err) {
+      res.json({ success: false, massege: "the hotel not found", err: err });
+      res.status(404);
+    } else {
+      res.json({ success: true, massege: `the hotel `, result: result });
+      res.status(200);
+    }
+  });
+};
 //================================================
 const gethotelById = (req, res) => {
-
-    const query = `SELECT * FROM hotels WHERE id=? AND is_deleted=0`
-    const id = req.params.id
-    connection.query(query, id, (err, result) => {
-        if (err) {
-
-            res.json({ success: false, massege: "the hotel not found", err: err })
-            res.status(404)
-
-        }
-        else {
-            res.json({ success: true, massege: ` the hotel `, result: result })
-            res.status(200)
-
-        }
-    })
-}
+  const query = `SELECT * FROM hotels WHERE id=? AND is_deleted=0`;
+  const id = req.params.id;
+  connection.query(query, id, (err, result) => {
+    if (err) {
+      res.json({ success: false, massege: "the hotel not found", err: err });
+      res.status(404);
+    } else {
+      res.json({ success: true, massege: ` the hotel `, result: result });
+      res.status(200);
+    }
+  });
+};
 //===============================================
 const gethotelsBycity = (req, res) => {
-
-    const query = `SELECT  hotels.*,city.name FROM hotels inner Join city on city_id =city.id  WHERE hotels.is_deleted=0 AND city.name=?;`;
-    const cityName =req.params.name
-    connection.query(query,cityName, (err, result) => {
-        if (err) {
-
-            res.json({ success: false, massege: "the hotels not found", err: err })
-            res.status(404)
-
-        }
-        else {
-            res.json({ success: true, massege: ` the hotels `, result: result })
-            res.status(200)
-
-        }
-    })
-}
+  const query = `SELECT  hotels.*,city.name FROM hotels inner Join city on city_id =city.id  WHERE hotels.is_deleted=0 AND city.name=?;`;
+  const cityName = req.params.name;
+  connection.query(query, cityName, (err, result) => {
+    if (err) {
+      res.json({ success: false, massege: "the hotels not found", err: err });
+      res.status(404);
+    } else {
+      res.json({ success: true, massege: ` the hotels `, result: result });
+      res.status(200);
+    }
+  });
+};
 
 //===========================================
 const updateHotelsById = (req, res) => {
