@@ -6,7 +6,7 @@ const createNewComment = (req, res) => {
   const commenter = req.token.userName;
   const { comment } = req.body;
 
-  const query = `INSERT INTO comments (comment, commenter_id, hotel_id,commenter) VALUES (?,?,?,?)`;
+  const query = `INSERT INTO comments (comment, commenter_id, hotels_id,commenter) VALUES (?,?,?,?)`;
   const data = [comment, commenter_id, hotelId,commenter];
 
   connection.query(query, data, (err, results) => {
