@@ -112,17 +112,20 @@ const Comment = ({ id }) => {
           <div>
             <div className="CommentDiv" key={index}>
               <div className="test4-continar">
-                <div className="test4">
-                  <div>
-                    <h3 className="block">{comment.commenter}</h3>
-                    <br />
-                    <p className="block pComment">{comment.comment}</p>
+                <div className="test4 row">
+                  <div className="col-lg-10 col-sm-10">
+                    <h4 className="block">{comment.commenter}</h4>
+                    {/* <br /> */}
+                    <p className="block pComment" style={{    boxShadow:" 4px 4px 4px 4px rgba(0, 0, 0, 0.1), 6px 6px 6px 6px rgba(0, 0, 0, 0.1)",
+padding:"15px"
+
+}}>{comment.comment}</p>
                   </div>
 
                   {userName == comment.commenter ? (
                     <AiOutlineDelete
                       size={35}
-                      className="delComment"
+                      className="delComment col-lg-2 col-sm-2 mt-5"
                       onClick={() =>
                         Swal.fire({
                           title: "Are you sure?",

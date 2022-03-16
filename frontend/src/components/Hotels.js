@@ -87,7 +87,7 @@ console.log(headers);
                        </div>
                
                      </div>
-                     <Comment id={hotel.id} />
+                     {/* <Comment id={hotel.id} /> */}
 
                    </div>
 

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Container, Row, Col, Card,Carousel } from "react-bootstrap";
 import "./detail.css";
 import Rating from "./Rating";
+import Comment from "../Comment";
 
 const Detail = () => {
   let { id } = useParams();
@@ -87,6 +88,8 @@ const Detail = () => {
 </div>
 
   </Row>
+  <Comment id={show&&hotel[0].id} />
+
 </Container>
 </div>
 
