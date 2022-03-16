@@ -113,19 +113,20 @@ const Comment = ({ id }) => {
             <div className="CommentDiv" key={index}>
               <div className="test4-continar">
                 <div className="test4 row">
-                  <div className="col-lg-10 col-sm-10">
-                    <h4 className="block">{comment.commenter}</h4>
-                    {/* <br /> */}
-                    <p className="block pComment" style={{    boxShadow:" 4px 4px 4px 4px rgba(0, 0, 0, 0.1), 6px 6px 6px 6px rgba(0, 0, 0, 0.1)",
+                  <div className="col-lg-10 col-sm-10"  style={{    boxShadow:" 4px 4px 4px 4px rgba(0, 0, 0, 0.1), 6px 6px 6px 6px rgba(0, 0, 0, 0.1)",
 padding:"15px"
 
-}}>{comment.comment}</p>
+}}>
+                    <h5 className="block">{comment.commenter}</h5>
+                    {/* <br /> */}
+                    <p className="block pComment" style={{marginBottom:"0",marginTop:"2px"}}>{comment.comment}</p>
                   </div>
 
                   {userName == comment.commenter ? (
                     <AiOutlineDelete
+                    style={{width:"120px"}}
                       size={35}
-                      className="delComment col-lg-2 col-sm-2 mt-5"
+                      className="delComment col-lg-2 col-sm-2 mt-4"
                       onClick={() =>
                         Swal.fire({
                           title: "Are you sure?",
@@ -152,7 +153,8 @@ padding:"15px"
                   )}
                 </div>
               </div>
-            </div>
+            </div>                    <br />
+
           </div>
         );
       })}

@@ -89,7 +89,7 @@ const Navigation = ({ setHotelName }) => {
               {/* <Modal.Header closeButton>Find Your Place</Modal.Header> */}
 {/* <div className="d-flex align-items-center justify-content-center "> */}
               <div className="row mt-4 d-flex align-items-center justify-content-center ">
-                <div className="col-lg-10 col-sm-6 w-50">
+                <div className="col-lg-11 col-sm-11 w-50">
               <Modal.Body style={{    paddingRight: '0px'}}>
                 <FloatingLabel
                   controlId="floatingInput"
@@ -108,7 +108,7 @@ const Navigation = ({ setHotelName }) => {
 
                 </FloatingLabel>
               </Modal.Body></div>
-<div className="col-lg-2 col-sm-6 mt-4" style={{    paddingLeft: '0'
+<div className="col-lg-1 col-sm-1 mb-3" style={{    paddingLeft: '0'
 }}>
               <Link className="searchIcon" to="/search">
                     <BsSearch variant="success" size={25}/>
