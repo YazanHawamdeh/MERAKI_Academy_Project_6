@@ -82,7 +82,7 @@ console.log(headers);
                            <p >price: {hotel.price}</p>
                          </div></div>
                          <p >
-                          <p className='col'onClick={()=>{addToWishList(hotel.id)}}>{hotel.description} </p>
+                          <p className='col'onClick={()=>{addToWishList(hotel.id)}}>addToWishList</p>
                          </p>
                        </div>
                
