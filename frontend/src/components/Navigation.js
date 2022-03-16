@@ -78,6 +78,8 @@ const Navigation = ({ setHotelName }) => {
                 </svg>
               </Button>
             </div>
+
+            
             <Modal
               show={show}
               fullscreen={true}
@@ -85,7 +87,10 @@ const Navigation = ({ setHotelName }) => {
               onHide={() => setShow(false)}
             >
               {/* <Modal.Header closeButton>Find Your Place</Modal.Header> */}
-              <Modal.Body >
+{/* <div className="d-flex align-items-center justify-content-center "> */}
+              <div className="row mt-4 ">
+                <div className="col-lg-6 col-sm-6">
+              <Modal.Body style={{    paddingRight: '0px'}}>
                 <FloatingLabel
                   controlId="floatingInput"
                   label="where do you want to go?"
@@ -96,17 +101,25 @@ const Navigation = ({ setHotelName }) => {
                   <Form.Control  onChange={(e) => {
                    
                       setHotelName(e.target.value);
-                    }}  className="w-50"  type="search" placeholder="..." />
+                    }}  className="w-100"  type="search" placeholder="..." />
 
 
-                 <Link className="searchIcon" to="/search">
-                    <BsSearch variant="success" />
-                  </Link>
+               
 
                 </FloatingLabel>
-              </Modal.Body>
+              </Modal.Body></div>
+<div className="col-lg-6 col-sm-6 mt-4" style={{    paddingLeft: '0'
+}}>
+              <Link className="searchIcon" to="/search">
+                    <BsSearch variant="success" size={25}/>
+                  </Link>
+                  </div>
+                  </div>
+                  
             </Modal>
 
+
+           
             <Modal
               show={showLogin}
               size="md"
