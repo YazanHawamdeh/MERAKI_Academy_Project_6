@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setHotels } from '../reducer/hotels';
 import { useNavigate } from 'react-router-dom';
+import Comment from './Comment';
 
 const Hotels=()=>{
 const navigate =useNavigate()
@@ -86,6 +87,8 @@ console.log(headers);
                        </div>
                
                      </div>
+                     <Comment id={hotel.id} />
+
                    </div>
 
                 )
