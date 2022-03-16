@@ -1,0 +1,28 @@
+.details{
+    vertical-align: middle !important;
+}
+.center{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.rating{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+   
+  
+   
+}
+.avarage{
+    display: flex;
+    align-items: center;
+}
+#star{
+    color: gold;
+}
+.votes{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

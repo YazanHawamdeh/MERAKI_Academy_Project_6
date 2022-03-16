@@ -4,6 +4,7 @@ import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 import { useParams } from "react-router-dom";
 import { MdPerson } from "react-icons/md";
+import {FaStar}  from "react-icons/fa"
 
 const Rating = () => {
   const userId = localStorage.getItem("myUserId");
@@ -25,7 +26,6 @@ const Rating = () => {
     let result = 0;
     for (let i = 0; i < ratings.length; i++) {
       const element = ratings[i];
-      console.log(element);
       result += parseInt(element.rating);
     }
     if (true) {
@@ -115,12 +115,18 @@ const Rating = () => {
         fullIcon={<i className="fa fa-star"></i>}
         activeColor="#ffd700"
       />
-      <span id="votes">{ratings.length} </span>{" "}
+
+        <div className="rating">
+          <div className="votes">
       <MdPerson color={"#344055"} size={25} />
-      <div className="avarage">
-        <span>{avarage.toFixed(1)}</span>
-        <i class="fa fa-star" aria-hidden="true"></i>
+      <span id="votes">{ratings.length}  </span>{" "}
       </div>
+      <div >
+        <span className="avarage">{avarage.toFixed(1)} <FaStar id="star"/></span>
+       
+      </div>
+           </div>
+      
     </>
   );
 };
