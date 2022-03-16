@@ -22,6 +22,9 @@ const citiesRouter = require("./routes/cities");
 const wishListRouter = require("./routes/wishList")
 const ratingsRouter =require('./routes/ratings')
 
+const commentsRouter = require("./routes/comments");
+
+
 // router middleware
 app.use("/roles", rolesRouter);
 app.use("/login", loginRouter);
@@ -32,6 +35,9 @@ app.use("/hotels", hotelsRouter);
 app.use("/cities", citiesRouter);
 app.use("/wishList",wishListRouter)
 app.use("/rate",ratingsRouter)
+
+app.use(commentsRouter);
+
 
 const PORT = process.env.PORT || 5000;
 
