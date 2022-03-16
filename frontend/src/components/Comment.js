@@ -54,7 +54,7 @@ const Comment = ({ id }) => {
 
   const getComments = async () => {
     await axios
-      .get(`http://localhost:5000//hotels/${id}/comments`)
+      .get(`http://localhost:5000/hotels/${id}/comments`)
       .then((res) => {
         if (res.data.success) {
         
@@ -71,7 +71,7 @@ const Comment = ({ id }) => {
 
   const deleteComment = async (id) => {
     await axios
-      .delete(`http://localhost:5000//hotels/${id}/comments`)
+      .delete(`http://localhost:5000/hotels/${id}/comments`)
       .then((res) => {
         if (res.data.success) {
          

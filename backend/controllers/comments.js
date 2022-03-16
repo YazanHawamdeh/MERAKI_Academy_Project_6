@@ -29,12 +29,12 @@ const createNewComment = (req, res) => {
 //get all comment
 
 const getAllComments = (req, res) => {
-  const query = `SELECT * FROM comments WHERE hotel_id=? AND is_deleted=0`;
+  const query = `SELECT * FROM comments WHERE hotels_id=? AND is_deleted=0`;
   const hotelID = [req.params.hotel_id];
 
   connection.query(query, hotelID, (err, result, field) => {
     if (err) {
-      res.json({ success: false, massege: "the product not found", err: err });
+      res.json({ success: false, massege: "the comments not found", err: err });
       res.status(404);
     } else {
       res.json({ success: true, massege: `the comments `,comments: result });
