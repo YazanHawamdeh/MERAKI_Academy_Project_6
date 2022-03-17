@@ -38,7 +38,8 @@ const App = () => {
         <Route path="/detail/:id" element={<Detail />} />
 
         <Route path="/search" element={<Search hotelName={hotelName} />} />
-       
+       <Route path="/" element={<Home />} />
+       {/* <Route path="/Admin" element={<Admin />} /> */}
       </Routes>
       <Footer />
 
