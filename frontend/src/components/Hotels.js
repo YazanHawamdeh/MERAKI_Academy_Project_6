@@ -69,7 +69,7 @@ console.log(headers);
             <div className='row mt-5'>
 
             {show&&state.hotels.map(hotel=>{
-                return (
+                return (<div>
                     <div class="col col-xl-3 col-sm-6" >
                      <div class="container1 " >
                        <div onClick={()=>{
@@ -79,47 +79,30 @@ console.log(headers);
                        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded img1" style={{height:"360px" }} alt="Hollywood Sign on The Hill" />
 
 </div>
-  {/* <div class="overlay"></div> */}
   <div class="button1 
-"><BsHeart size={45} /> </div>
-                       {/* <div class="card-body " style={{  boxShadow:" 0 4px 8px 0 rgba(0,0,0,0.2)"
-}}>
-                         <div className='row'>
-                         <div className='col-xl-6'>
-                         <h5 class="card-title" style={{height:"20px"}}> {hotel.hotelName}</h5>
-                         </div>
-                         <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
-                           <p >price: {hotel.price}</p>
-                         </div></div>
-
-                      
-                       </div> */}
-                         <p >
+"><BsHeart size={45} onClick={()=>{addToWishList(hotel.id)}}/> </div>
+                 
+                       </div> 
+                         {/* <p >
                           <p className='col'onClick={()=>{addToWishList(hotel.id)}}>addToWishList</p>
-                         </p>
-                       </div>
+                         </p> */}
                
-                     </div>
 
                      <div className='row' style={{marginTop:"100px"}}>
-                         <div className='col-xl-6'>
+                         <div className='col-xl-6 '>
                          <h5 class="card-title" style={{height:"20px"}}> {hotel.hotelName}</h5>
                          </div>
                          <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
-                           <p >price: {hotel.price}$</p>
+                           <p className="price">price: {hotel.price}$</p>
                          </div></div>
+                   </div>
                    </div>
 
                 )
             })}</div>  
 
 
-                               {/* <div class="container">
-  <img src="https://images.unsplash.com/photo-1488628075628-e876f502d67a?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=" alt="" />
-  <p class="title">card title</p>
-  <div class="overlay"></div>
-  <div class="button"><a href="#"> BUTTON </a></div>
-</div>                       */}
+                         
 
      </div>
     )

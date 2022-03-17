@@ -80,3 +80,10 @@
   .button1:hover{
       color:red
   }
+  .card-title{
+      margin-left: 10px;
+  }
+
+  .price{
+      margin-right: 10px;
+  }
