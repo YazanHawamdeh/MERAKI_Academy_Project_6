@@ -7,6 +7,7 @@ import { HiOutlinePencilAlt } from "react-icons/hi";
 import { AiOutlineDelete } from "react-icons/ai";
 
 const Comment = ({ id }) => {
+    
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
@@ -15,9 +16,6 @@ const Comment = ({ id }) => {
   });
   //===============================================================
 
-  useEffect(() => {
-    getComments();
-  }, []);
 
   //===============================================================
 
@@ -87,6 +85,13 @@ const Comment = ({ id }) => {
         setMessage(err.response.data.massege);
       });
   };
+
+
+  useEffect(() => {
+    getComments();
+  }, []);
+
+
   return (
     <>
       {state.isLoggedIn ? (
@@ -94,15 +99,16 @@ const Comment = ({ id }) => {
           <div className="writeComment">
             <input
               className="commentHere"
+              style={{padding:"12px",width:"500px"}}
               placeholder="comment here"
               onChange={(e) => setComment(e.target.value)}
             />
             <HiOutlinePencilAlt
               size={35}
-              className="addComment"
+              className="addComment m-4"
               onClick={createNewComment}
             />
-          </div>
+          </div><br/>
         </div>
       ) : (
         <h2>register to add a comment</h2>
@@ -113,7 +119,7 @@ const Comment = ({ id }) => {
             <div className="CommentDiv" key={index}>
               <div className="test4-continar">
                 <div className="test4 row">
-                  <div className="col-lg-10 col-sm-10"  style={{    boxShadow:" 4px 4px 4px 4px rgba(0, 0, 0, 0.1), 6px 6px 6px 6px rgba(0, 0, 0, 0.1)",
+                  <div className="col-lg-10 col-sm-10"  style={{boxShadow:" 4px 4px 4px 4px rgba(0, 0, 0, 0.1), 6px 6px 6px 6px rgba(0, 0, 0, 0.1)",
 padding:"15px"
 
 }}>
@@ -138,11 +144,7 @@ padding:"15px"
                           confirmButtonText: "Yes, delete it!",
                         }).then((result) => {
                           if (result.isConfirmed) {
-                            Swal.fire(
-                              "Deleted!",
-                              "Your file has been deleted.",
-                              "success"
-                            );
+                           
                             deleteComment(comment.id);
                           }
                         })
@@ -153,7 +155,7 @@ padding:"15px"
                   )}
                 </div>
               </div>
-            </div>                    <br />
+            </div><br />
 
           </div>
         );

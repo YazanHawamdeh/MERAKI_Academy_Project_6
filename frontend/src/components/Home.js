@@ -8,10 +8,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCities } from ".././reducer/cities";
 import Cities from "./Cities";
 
+
+
 const Home = () => {
   const [skip, setSkip] = useState(0);
   const [page, setPage] = useState(1);
   const [elementId, setElementId] = useState([]);
+
+  const [show1, setShow1] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
 
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
@@ -30,11 +36,11 @@ const Home = () => {
             <img
               className="d-block w-100 "
               style={{ height: "45rem" }}
-              src="https://images.pexels.com/photos/5484912/pexels-photo-5484912.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              src="https://images.pexels.com/photos/7821349/pexels-photo-7821349.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
               alt="First slide"
             />
             {/* <Carousel.Caption>
-            <h3>First slide label</h3>
+            <h1 style={{paddingBottom:"10%",color:"white",fontSize:'60px',fontFamily:'auto'}}>EASIER TO BOOK</h1>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption> */}
           </Carousel.Item>
@@ -42,26 +48,30 @@ const Home = () => {
             <img
               className="d-block w-100"
               style={{ height: "45rem" }}
-              src="https://images.pexels.com/photos/5104057/pexels-photo-5104057.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+              src="https://images.pexels.com/photos/6636247/pexels-photo-6636247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
           "
               alt="Second slide"
             />
+              <Carousel.Caption style={{paddingBottom:"15%",color:"black",fontSize:'25px',fontFamily:'auto'}}>
+              <h1 style={{color:"black",fontSize:'60px'}}>FOR MORE CONFORT</h1>
+            <p>We have different types of rooms that contain th finest types of furniture and services</p>
+          </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={3000}>
             <img
               className="d-block w-100"
               style={{ height: "45rem" }}
-              src="https://images.pexels.com/photos/5104057/pexels-photo-5104057.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+              src="https://images.pexels.com/photos/756076/pexels-photo-756076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
 "
               alt="Third slide"
             />
 
-            {/* <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <Carousel.Caption style={{paddingBottom:"15%",color:"black",fontSize:'25px',fontFamily:'auto'}}>
+            <h1 style={{color:"black",fontSize:'60px',fontFamily:'auto'}}>FOR MORE ENJOYMENT</h1>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              We have beautiful places with great views
             </p>
-          </Carousel.Caption> */}
+          </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
       </div>
@@ -254,9 +264,11 @@ const Home = () => {
               <div class="text-center">
                 <a
                   class="btn btn-link btn-primary mt-3"
-                  href="https://hyra.cron24.com/become-a-host/duplicate"
+                 
                 >
-                  <h1 class="h4 text-white fw-bold mb-0"> Get Started </h1>
+                  <h1 class="h4 text-white fw-bold mb-0"
+                  
+                  > Get Started </h1>
                 </a>
               </div>
             </div>
