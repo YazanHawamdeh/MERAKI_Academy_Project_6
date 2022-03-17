@@ -5,6 +5,9 @@ import { Container, Row, Col, Card,Carousel } from "react-bootstrap";
 import "./detail.css";
 import Rating from "./Rating";
 import Comment from "../Comment";
+import { FaBed } from 'react-icons/fa'
+import { MdPerson,MdBathroom,MdBedroomParent,MdPriceChange } from "react-icons/md";
+
 
 const Detail = () => {
   let { id } = useParams();
@@ -46,26 +49,17 @@ const Detail = () => {
   };
   console.log(images);
 
-  return (
+  return ( 
 <div  className="container-fluid col-11" style={{ marginTop: "100px" }}>
-  
-
-    <Container   >
-    <Row className="col-12">
-    <h2 className="ms-2"> <Rating/></h2> 
-    </Row >
-  <Row >
-
-
+    <Container fluid >
+  <Row>
     <Col >
-    
-  
-      <Carousel activeIndex={index} onSelect={handleSelect} style={{ height: "25rem",width :"40rem" }} >
+    <Carousel  activeIndex={index} onSelect={handleSelect} style={{ height: "25rem",width :"40rem" }} >
       {show&&images.map((elemnet)=>{
         return(
           <Carousel.Item interval={3000} >
   <img
-    className="d-block w-100 " style={{ height: "25rem" }}
+    className="d-block w-100 " style={{ height: "25rem",borderRadius:"8px" }}
     src={elemnet}
     alt="First slide"
 
@@ -81,17 +75,50 @@ const Detail = () => {
 
 </Carousel>
 
-</Col>
-<div className="ms-2 mt-1 col-6" style={{ display:"flex",justifyContent:"space-between"} }>
-<p className="fs-4" > { show&&hotel[0].description}</p> 
-<p className="fs-4"> {show&&hotel[0].price}$/night</p> 
-</div>
-
+    </Col >
+    
+    {show&& <Col className="details shadow bg-white rounded">
+    <div className="center">  <p  className="fs-4 mt-2 ms-3 mb-3 center">{ hotel[0].hotelName} </p></div> 
+   <p className="fs-4 ms-3" ><Rating/></p> 
+   <p className="fs-4 ms-3" > <MdPerson/> { hotel[0].guests} Guests</p>
+   <p className="fs-4 ms-3">  <MdBedroomParent/> { hotel[0].bedrooms} Bedrooms</p>
+   <p className="fs-4 ms-3"><FaBed/> { hotel[0].beds} Beds</p>
+   <p className="fs-4 ms-3"><MdBathroom/> { hotel[0].bathrooms} Bathrooms</p>
+   <p className="fs-4 ms-3"><MdPriceChange/> { hotel[0].price} $/Night</p>
+   </Col>
+   }
+   
+    
   </Row>
-  <Comment id={show&&hotel[0].id} />
-
+  
 </Container>
 </div>
+// 
+  
+
+//     <Container   >
+//     <Row className="col-12">
+//     <h2 className="ms-2"> <Rating/></h2> 
+//     </Row >
+//   <Row >
+
+
+//     <Col >
+    
+  
+
+// </Col>
+// {show&&<div className="ms-2 mt-1 col-6" style={{ display:"flex",justifyContent:"space-between"} }>
+// <p className="fs-4" > { hotel[0].guests} { hotel[0].bedrooms} {hotel[0].beds}  { hotel[0].bathrooms}</p> 
+// <p className="fs-4"> {hotel[0].price}$/night</p> 
+// </div>}
+
+
+//   </Row>
+//   <Comment id={show&&hotel[0].id} />
+
+// </Container>
+// </div>
 
     
     

@@ -91,8 +91,13 @@ console.log(headers);
                          <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
                            <p >price: {hotel.price}</p>
                          </div></div>
+
                       
                        </div> */}
+                         <p >
+                          <p className='col'onClick={()=>{addToWishList(hotel.id)}}>addToWishList</p>
+                         </p>
+                       </div>
                
                      </div>
 
