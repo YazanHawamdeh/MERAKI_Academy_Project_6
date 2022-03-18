@@ -1,10 +1,13 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Container, Modal,Form,Table } from "react-bootstrap";
 import "./Admin.css"
 
 const Admin =()=>{
+  const [hotels,setHotels]=useState([])
     const [show, setShow] = useState(false);
+    const [showTable, setShowTable] = useState(false);
+    
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -47,8 +50,31 @@ const [city_id,setCity_id]=useState("")
             throw err
         })
     }
+    const getHotels= async()=>{
+       await axios.get(`http://localhost:5000/hotels/page?skip=0&limit=3`).then((result)=>{
+         
+        setHotels(result.data.results)
+        setShowTable(true)
 
+       }).catch((err)=>{
+         throw err
+       })
+    }
 
+    const deleteHotel =(id)=>{
+      axios.put(`http://localhost:5000/hotels/${id}`).then(res=>{
+        getHotels()
+      })
+      .catch(err=>{
+        throw err
+      })
+    }
+
+    useEffect(() => {
+      getHotels();
+    }, []);
+    console.log(hotels);
+  
     return (
         <Container className="marginAdmin">
          
@@ -141,34 +167,27 @@ const [city_id,setCity_id]=useState("")
       <th>Bedrooms</th>
       <th>Bathrooms</th>
       <th>Price</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+    {showTable&&hotels.map((hotel)=>{
+      return(
+<tr>
+      <td>{hotel.id}</td>
+      <td>{hotel.hotelName}</td>
+      <td>{hotel.guests}</td>
+      <td>{hotel.bedrooms}</td>
+      <td>{hotel.bathrooms}</td>
+      <td>{hotel.price}$/night</td>
+      <td><Button variant="danger">Delete</Button></td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td >Larry the Bird</td>
-      <td>@twitter</td>
-      <td >Larry the Bird</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
+      )
       
-    </tr>
+      
+    })}
+    
+   
   </tbody>
 </Table>
       </Container>
