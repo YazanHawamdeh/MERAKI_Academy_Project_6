@@ -63,6 +63,26 @@ const getAllHotels = (req, res) => {
     });
   });
 };
+
+
+const getHotelsLimit=(req, res)=>{
+  let skip = req.query.skip;
+  let limit = req.query.limit;
+  const query= `SELECT * FROM hotels WHERE is_deleted=0 LIMIT ${skip},${limit}`
+  connection.query(query,(err,results)=>{
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      })
+    }
+    res.status(200).json({
+      success: true,
+      results: results,
+    });
+  })
+}
 //===========================================
 const gethotelByName = (req, res) => {
   const query = `SELECT * FROM hotels WHERE hotelName=? AND is_deleted=0`;
@@ -143,6 +163,7 @@ const deleteHotelsById = (req, res) => {
 module.exports = {
   createNewHotels,
   getAllHotels,
+  getHotelsLimit,
   updateHotelsById,
   deleteHotelsById,
   gethotelByName,
