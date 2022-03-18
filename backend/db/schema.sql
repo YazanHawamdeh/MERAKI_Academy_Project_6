@@ -43,6 +43,7 @@ guests INT(7) NOT NULL,
 bedrooms INT(7) NOT NULL,
 beds INT(7) NOT NULL,
 bathrooms INT(7) NOT NULL,
+description  VARCHAR(255) NOT NULL,
 price INT(7) NOT NULL,
 city_id INT,
 FOREIGN KEY(city_id) REFERENCES city(id),
@@ -90,3 +91,5 @@ INSERT INTO city (name,image,description) VALUES ('Aqaba','https://stepintojorda
 INSERT INTO city (name,image,description) VALUES ('Wadi Musa','https://stepintojordan.com/wp-content/uploads/2019/09/Wadi-Musa-Restaurants-Petra-Jordan.jpg',"Wadi Musa is a town located in the Ma'an Governorate in southern Jordan.");
 INSERT INTO city (name,image,description) VALUES ('Madaba','https://media.tacdn.com/media/attractions-splice-spp-674x446/09/76/3e/69.jpg
 ','Madaba is an ancient town in Jordan, southwest of the capital Amman');
+
+INSERT INTO hotels (hotelName,image,image2,image3,image4,image5,guests,bedrooms,beds,bathrooms,description,price,city_id) VALUES("Private Room","https://hyra.cron24.com/images/rooms/10001/room_01605165005.jpg","https://hyra.cron24.com/images/rooms/10006/room_01606547084.jpg","https://hyra.cron24.com/images/rooms/10006/room_11606547085.jpg","https://hyra.cron24.com/images/rooms/10006/room_01606547079.jpg","https://hyra.cron24.com/images/rooms/10006/room_01606547084.jpg","5","4","8","3","Located in the heart of Sydney with fantastic city views, the room is excellent for single/couple who want to take the flight (Available for long term rent)","80","1")
