@@ -5,6 +5,7 @@ import { setWishList,deleteWishList } from "../reducer/wishLish";
 import Swal from "sweetalert2";
 import { BsHeart } from 'react-icons/bs';
 import { RiDeleteBinLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 import './hotels.css'
 
@@ -14,6 +15,7 @@ const WishList =()=>{
     const [message, setMessage] = useState("");
     const [show, setShow] = useState(false);
     const dispatch =useDispatch()
+    const navigate=useNavigate()
     const state= useSelector((state)=>{
         return {
             wishList :state.wishListReducer.wishList,
@@ -55,15 +57,18 @@ const getMyWishLists = async () => {
 
      
     return(
-        <div class="container-fluid col-11">
+        <div class="container-fluid col-11 ">
 
-            <div className='row mt-5'>
+            <div className='row '>
 
             {show&&state.wishList.map(hotel=>{
                 return (
-                    <div class="col col-xl-3 col-sm-6 ">
-                     <div class="container1" >
-                <div >
+                    <div class="col col-xl-3 m-2 col-sm-6 " style={{paddingLeft:"0",paddingRight:"0"}}>
+                     <div class="container1 " >
+                <div onClick={() => {
+                  navigate(`/detail/${hotel.id}`)
+
+                }}>
                   <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded img1" style={{ height: "360px" }} alt="Hollywood Sign on The Hill" />
 
                 </div>
@@ -88,8 +93,7 @@ const getMyWishLists = async () => {
               </div>
 
 
-
-              <div className='row' style={{ marginTop: "100px" }}>
+              <div className='row' style={{ marginTop: "80px" }}>
                 <div className='col-xl-6 '>
                   <h5 class="card-title" style={{ height: "20px" }}> {hotel.hotelName}</h5>
                 </div>

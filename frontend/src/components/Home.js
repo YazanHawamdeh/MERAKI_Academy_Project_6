@@ -11,16 +11,16 @@ import Cities from "./Cities";
 
 
 const Home = () => {
-  const [skip, setSkip] = useState(0);
-  const [page, setPage] = useState(1);
-  const [elementId, setElementId] = useState([]);
+  // const [skip, setSkip] = useState(0);
+  // const [page, setPage] = useState(1);
+  // const [elementId, setElementId] = useState([]);
 
-  const [show1, setShow1] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
-  const [showSignup, setShowSignup] = useState(false);
+  // const [show1, setShow1] = useState(false);
+  // const [showLogin, setShowLogin] = useState(false);
+  // const [showSignup, setShowSignup] = useState(false);
 
-  const navigate = useNavigate();
-  const [show, setShow] = useState(false);
+  // const navigate = useNavigate();
+  // const [show, setShow] = useState(false);
 
   const [index, setIndex] = useState(0);
 
@@ -36,7 +36,7 @@ const Home = () => {
             <img
               className="d-block w-100 "
               style={{ height: "45rem" }}
-              src="https://images.pexels.com/photos/7821349/pexels-photo-7821349.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              src="https://images.pexels.com/photos/2844474/pexels-photo-2844474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
               alt="First slide"
             />
             {/* <Carousel.Caption>

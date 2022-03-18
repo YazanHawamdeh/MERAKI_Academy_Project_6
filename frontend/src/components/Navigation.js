@@ -5,7 +5,7 @@ import Login from "./Login";
 import { logout } from "../reducer/login/index";
 import { useDispatch, useSelector } from "react-redux";
 
-import { BsSearch } from "react-icons/bs";
+import { BsSearch,BsHeart } from "react-icons/bs";
 
 import {
   Container,
@@ -165,6 +165,9 @@ const Navigation = ({ setHotelName }) => {
               <Modal.Header closeButton>
                 <Modal.Title>Sign up</Modal.Title>
               </Modal.Header>
+
+
+             
               <Modal.Body>
                 <Register
                   setShowSignup={setShowSignup}
@@ -200,6 +203,7 @@ const Navigation = ({ setHotelName }) => {
             >
               {!state.isLoggedIn ? (
                 <>
+                
                   <Nav.Link className="fw-bold" style={{color:"#198754"}} onClick={() => setShowLogin(true)}>Log in</Nav.Link>
                   <Nav.Link className="fw-bold" style={{color:"#198754"}} onClick={() => setShowSignup(true)}>
                     Sign up
@@ -207,6 +211,9 @@ const Navigation = ({ setHotelName }) => {
                 </>
               ) : (
                 <>
+                <BsHeart size={25} className="fw-bold mt-2" style={{color:"#198754",cursor:"pointer"}} onClick={() => {
+                  navigate("/wishList")
+                  }} />
                   <Nav.Link className="fw-bold" style={{color:"#198754"}}>{localStorage.getItem("userName")}</Nav.Link>
 
                   <Nav.Link
@@ -219,7 +226,7 @@ const Navigation = ({ setHotelName }) => {
                     }}
                     to="/home"
                   >
-                    <MdLogout style={{color:"#198754"}} size={23} />
+                    <MdLogout style={{color:"#198754"}} size={25} />
                   </Nav.Link>
                 </>
               )}
@@ -235,6 +242,7 @@ const Navigation = ({ setHotelName }) => {
          */}
             </Nav>
           </Navbar.Collapse>
+         
         </Container>
       </Navbar>
     </>
