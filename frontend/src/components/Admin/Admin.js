@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Container, Modal,Form,Table } from "react-bootstrap";
+import { Button, Container, Modal,Form,Table,Pagination } from "react-bootstrap";
 import "./Admin.css"
 
 const Admin =()=>{
@@ -12,6 +12,8 @@ const Admin =()=>{
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 const [hotelName,setHotelName]=useState("")
+const [skip,setSkip]=useState(0)
+const [page,setPage]=useState(1)
 
 const [image,setImage]=useState("")
 const [image2,setImage2]=useState("")
@@ -56,7 +58,7 @@ const [city_id,setCity_id]=useState("")
     }
 
     const getHotels= async()=>{
-       await axios.get(`http://localhost:5000/hotels/page?skip=0&limit=3`).then((result)=>{
+       await axios.get(`http://localhost:5000/hotels/page?skip=${skip}&limit=5`).then((result)=>{
          
         setHotels(result.data.results)
         setShowTable(true)
@@ -77,15 +79,24 @@ const [city_id,setCity_id]=useState("")
 
     useEffect(() => {
       getHotels();
-    }, []);
-    console.log(hotels);
+    }, [skip]);
+    const inc =()=>{
+      
+     setSkip(skip+5)
+     setPage(page+1)
+    }
+    const dec =()=>{
+      if (page>1) {
+        setSkip(skip-5)
+        setPage(page-1)
+      }
+    
+    }
   
     return (
         <Container className="marginAdmin">
          
-        <Button  variant="primary" onClick={handleShow}>
-         Create
-        </Button>
+       
   
         <Modal
           show={show}
@@ -163,10 +174,11 @@ const [city_id,setCity_id]=useState("")
           </Modal.Footer>
         </Modal>
 
+<h2>Hotels Table</h2>
         <Table striped bordered hover variant="dark">
   <thead>
     <tr>
-      <th>#</th>
+      <th>Id</th>
       <th> Name</th>
       <th>Guests</th>
       <th>Bedrooms</th>
@@ -195,6 +207,25 @@ const [city_id,setCity_id]=useState("")
    
   </tbody>
 </Table>
+
+<Pagination>
+  <Pagination.First onClick={()=>{dec()}}/>
+  <Pagination.Prev  onClick={()=>{dec()}}/>
+
+
+  
+  <Pagination.Item>{page-1}</Pagination.Item>
+  <Pagination.Item active>{page}</Pagination.Item>
+  <Pagination.Item>{page+1}</Pagination.Item>
+ 
+
+ 
+  <Pagination.Next onClick={()=>{inc()}}/>
+  <Pagination.Last onClick={()=>{inc()}} />
+</Pagination>
+<div className="create "><Button className="col-2" variant="primary" onClick={handleShow}>
+         Create
+        </Button ></div>
       </Container>
     )
 }
