@@ -7,3 +7,7 @@ background-size: cover;
 .c{
     color: black;
 }
+.ready{
+    font-size: 35px;
+    text-shadow: 2px 2px 4px white;
+}

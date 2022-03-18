@@ -260,7 +260,7 @@ const Home = () => {
         <div class="fluid-container  my-5 bac ">
           <div class="col-md-12 d-flex align-items-center justify-content-center h-100 c">
             <div class="become_host-wrapper">
-              <h3> Ready To Earn </h3>
+              <h3 className="ready"> Ready To Earn </h3>
               <div class="text-center">
                 <a
                   class="btn btn-link btn-primary mt-3"
