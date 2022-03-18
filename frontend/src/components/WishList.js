@@ -2,6 +2,13 @@ import React,{ useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch,useSelector } from "react-redux";
 import { setWishList,deleteWishList } from "../reducer/wishLish";
+import Swal from "sweetalert2";
+import { BsHeart } from 'react-icons/bs';
+import { RiDeleteBinLine } from "react-icons/ri";
+
+import './hotels.css'
+
+
 
 const WishList =()=>{
     const [message, setMessage] = useState("");
@@ -54,23 +61,41 @@ const getMyWishLists = async () => {
 
             {show&&state.wishList.map(hotel=>{
                 return (
-                    <div class="col col-xl-3 col-sm-6">
-                     <div class=" ">
-                       <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded " style={{height:"360px" }} alt="Hollywood Sign on The Hill"/>
-                       <div class="card-body ">
-                         <div className='row'>
-                         <div className='col-xl-6'>
-                         <h5 class="card-title" style={{height:"20px"}}> {hotel.hotelName}</h5>
-                         </div>
-                         <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
-                           <p >price: {hotel.price}</p>
-                         </div></div>
-                         <p >
-                          <p className='col'>addToWishList</p>
-                         </p>
-                       </div>
-               
-                     </div>
+                    <div class="col col-xl-3 col-sm-6 ">
+                     <div class="container1" >
+                <div >
+                  <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded img1" style={{ height: "360px" }} alt="Hollywood Sign on The Hill" />
+
+                </div>
+                <div class="button1 
+"><RiDeleteBinLine size={45} onClick={() => Swal.fire({
+                  title: "Are you sure?",
+                  text: "You won't be able to revert this!",
+                  icon: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Yes, delete it!",
+                }).then((result) => {
+                  if (result.isConfirmed) {
+
+                    deleteWishListById(hotel.id)
+                  }
+                })
+
+                  } /> </div>
+
+              </div>
+
+
+
+              <div className='row' style={{ marginTop: "100px" }}>
+                <div className='col-xl-6 '>
+                  <h5 class="card-title" style={{ height: "20px" }}> {hotel.hotelName}</h5>
+                </div>
+                <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
+                  <p className="price">price: {hotel.price}$</p>
+                </div></div>
                    </div>
 
                 )
