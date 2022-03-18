@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Container, Modal,Form } from "react-bootstrap";
+import { Button, Container, Modal,Form,Table } from "react-bootstrap";
 import "./Admin.css"
 
 const Admin =()=>{
@@ -131,6 +131,46 @@ const [city_id,setCity_id]=useState("")
             <Button variant="primary" className="col-12" onClick={()=>{createHotel()}}>Create</Button>
           </Modal.Footer>
         </Modal>
+
+        <Table striped bordered hover variant="dark">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th> Name</th>
+      <th>Guests</th>
+      <th>Bedrooms</th>
+      <th>Bathrooms</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td >Larry the Bird</td>
+      <td>@twitter</td>
+      <td >Larry the Bird</td>
+      <td>@twitter</td>
+      <td>@twitter</td>
+      
+    </tr>
+  </tbody>
+</Table>
       </Container>
     )
 }
