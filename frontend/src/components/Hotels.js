@@ -72,7 +72,7 @@ const Hotels = () => {
 
         {show && state.hotels.map(hotel => {
           return (<div>
-            <div class="col col-xl-3 col-sm-6" >
+            <div class="col1 col-xl-3 col-sm-6" >
               <div class="container1" >
                 <div onClick={() => {
                   navigate(`/detail/${hotel.id}`)
