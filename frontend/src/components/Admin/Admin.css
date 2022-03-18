@@ -19,3 +19,15 @@
     justify-content: center;
     display: flex;
 }
+th{
+    text-align: center;
+}
+tr{
+    text-align: center;
+   vertical-align: middle;
+}
+.create{
+    width: 100%;
+    justify-content: flex-end ;
+    display: flex;
+}

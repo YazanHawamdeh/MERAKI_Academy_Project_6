@@ -1,14 +1,19 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { Button, Container, Modal,Form } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Button, Container, Modal,Form,Table,Pagination } from "react-bootstrap";
 import "./Admin.css"
 
 const Admin =()=>{
+  const [hotels,setHotels]=useState([])
     const [show, setShow] = useState(false);
+    const [showTable, setShowTable] = useState(false);
+    
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 const [hotelName,setHotelName]=useState("")
+const [skip,setSkip]=useState(0)
+const [page,setPage]=useState(1)
 
 const [image,setImage]=useState("")
 const [image2,setImage2]=useState("")
@@ -23,7 +28,7 @@ const [description,setDescription]=useState("")
 const [price,setPrice]=useState("")
 const [city_id,setCity_id]=useState("")
 
-    const createHotel =()=>{
+    const createHotel =async()=>{
         const body ={
             hotelName,
             image,
@@ -40,21 +45,58 @@ const [city_id,setCity_id]=useState("")
             price,
           }
         
-        axios.post("http://localhost:5000/hotels",body)
+     await   axios.post("http://localhost:5000/hotels",body)
+     .then((result)=>{
+      getHotels()
+     })
+         
 
         
         .catch(err=>{
-            throw err
+            console.log(err);
         })
     }
 
+    const getHotels= async()=>{
+       await axios.get(`http://localhost:5000/hotels/page?skip=${skip}&limit=5`).then((result)=>{
+         
+        setHotels(result.data.results)
+        setShowTable(true)
 
+       }).catch((err)=>{
+         throw err
+       })
+    }
+
+    const deleteHotel =(id)=>{
+      axios.delete(`http://localhost:5000/hotels/${id}`).then(res=>{
+        getHotels()
+      })
+      .catch(err=>{
+        throw err
+      })
+    }
+
+    useEffect(() => {
+      getHotels();
+    }, [skip]);
+    const inc =()=>{
+      
+     setSkip(skip+5)
+     setPage(page+1)
+    }
+    const dec =()=>{
+      if (page>1) {
+        setSkip(skip-5)
+        setPage(page-1)
+      }
+    
+    }
+  
     return (
         <Container className="marginAdmin">
          
-        <Button  variant="primary" onClick={handleShow}>
-         Create
-        </Button>
+       
   
         <Modal
           show={show}
@@ -131,6 +173,59 @@ const [city_id,setCity_id]=useState("")
             <Button variant="primary" className="col-12" onClick={()=>{createHotel()}}>Create</Button>
           </Modal.Footer>
         </Modal>
+
+<h2>Hotels Table</h2>
+        <Table striped bordered hover variant="dark">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th> Name</th>
+      <th>Guests</th>
+      <th>Bedrooms</th>
+      <th>Bathrooms</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {showTable&&hotels.map((hotel)=>{
+      return(
+<tr>
+      <td>{hotel.id}</td>
+      <td>{hotel.hotelName}</td>
+      <td>{hotel.guests}</td>
+      <td>{hotel.bedrooms}</td>
+      <td>{hotel.bathrooms}</td>
+      <td>{hotel.price}$/night</td>
+      <td><Button variant="danger" onClick={(id)=>{deleteHotel(hotel.id)}}>Delete</Button></td>
+    </tr>
+      )
+      
+      
+    })}
+    
+   
+  </tbody>
+</Table>
+
+<Pagination>
+  <Pagination.First onClick={()=>{dec()}}/>
+  <Pagination.Prev  onClick={()=>{dec()}}/>
+
+
+  
+  <Pagination.Item>{page-1}</Pagination.Item>
+  <Pagination.Item active>{page}</Pagination.Item>
+  <Pagination.Item>{page+1}</Pagination.Item>
+ 
+
+ 
+  <Pagination.Next onClick={()=>{inc()}}/>
+  <Pagination.Last onClick={()=>{inc()}} />
+</Pagination>
+<div className="create "><Button className="col-2" variant="primary" onClick={handleShow}>
+         Create
+        </Button ></div>
       </Container>
     )
 }
