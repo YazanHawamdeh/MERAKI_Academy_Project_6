@@ -26,7 +26,7 @@ const [description,setDescription]=useState("")
 const [price,setPrice]=useState("")
 const [city_id,setCity_id]=useState("")
 
-    const createHotel =()=>{
+    const createHotel =async()=>{
         const body ={
             hotelName,
             image,
@@ -43,13 +43,18 @@ const [city_id,setCity_id]=useState("")
             price,
           }
         
-        axios.post("http://localhost:5000/hotels",body)
+     await   axios.post("http://localhost:5000/hotels",body)
+     .then((result)=>{
+      getHotels()
+     })
+         
 
         
         .catch(err=>{
-            throw err
+            console.log(err);
         })
     }
+
     const getHotels= async()=>{
        await axios.get(`http://localhost:5000/hotels/page?skip=0&limit=3`).then((result)=>{
          
@@ -62,7 +67,7 @@ const [city_id,setCity_id]=useState("")
     }
 
     const deleteHotel =(id)=>{
-      axios.put(`http://localhost:5000/hotels/${id}`).then(res=>{
+      axios.delete(`http://localhost:5000/hotels/${id}`).then(res=>{
         getHotels()
       })
       .catch(err=>{
@@ -180,7 +185,7 @@ const [city_id,setCity_id]=useState("")
       <td>{hotel.bedrooms}</td>
       <td>{hotel.bathrooms}</td>
       <td>{hotel.price}$/night</td>
-      <td><Button variant="danger">Delete</Button></td>
+      <td><Button variant="danger" onClick={(id)=>{deleteHotel(hotel.id)}}>Delete</Button></td>
     </tr>
       )
       
