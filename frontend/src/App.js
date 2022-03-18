@@ -16,6 +16,7 @@ import WishList from "./components/WishList";
 import Detail from './components/Detail/Detail';
 
 import Search from "./components/Search/Search";
+import Admin from "./components/Admin/Admin"
 
 //===============================================================
 
@@ -39,7 +40,7 @@ const App = () => {
 
         <Route path="/search" element={<Search hotelName={hotelName} />} />
        <Route path="/" element={<Home />} />
-       {/* <Route path="/Admin" element={<Admin />} /> */}
+       <Route path="/Admin" element={<Admin />} />
       </Routes>
       <Footer />
 

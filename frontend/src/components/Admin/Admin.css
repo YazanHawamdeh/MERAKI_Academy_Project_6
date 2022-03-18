@@ -1,0 +1,21 @@
+.marginAdmin{
+    margin-top: 100px;
+   
+}
+
+.image{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.detail{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    column-gap: 5px;
+}
+.title{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
