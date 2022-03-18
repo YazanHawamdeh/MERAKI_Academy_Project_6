@@ -1,5 +1,6 @@
 .details{
-    vertical-align: middle !important;
+    display: flex;
+    flex-direction: column;
 }
 .center{
     display: flex;
