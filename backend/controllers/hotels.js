@@ -1,7 +1,7 @@
 const connection = require("../db/db");
 
 const createNewHotels = (req, res) => {
-  const query = `INSERT INTO hotels (hotelName,image,image2,image3,image4,image5,guests,bedrooms,beds,bathrooms,city_id,price) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const query = `INSERT INTO hotels (hotelName,image,image2,image3,image4,image5,guests,bedrooms,beds,bathrooms,description,city_id,price) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
   const {
     hotelName,
     image,
@@ -13,6 +13,7 @@ const createNewHotels = (req, res) => {
     bedrooms,
     beds,
     bathrooms,
+    description ,
     city_id,
     price,
   } = req.body;
@@ -27,6 +28,7 @@ const createNewHotels = (req, res) => {
     bedrooms,
     beds,
     bathrooms,
+    description ,
     city_id,
     price,
   ];

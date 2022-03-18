@@ -52,8 +52,8 @@ const Detail = () => {
   return ( 
 <div  className="container-fluid col-11" style={{ marginTop: "100px" }}>
     <Container fluid >
-  <Row>
-    <Col >
+  <Row xs={1}  lg={2}>
+    <Col className="d-flex align-items-center justify-content-center">
     <Carousel  activeIndex={index} onSelect={handleSelect} style={{ height: "25rem",width :"40rem" }} >
       {show&&images.map((elemnet)=>{
         return(
@@ -76,15 +76,21 @@ const Detail = () => {
 </Carousel>
 
     </Col >
-    
-    {show&& <Col className="details shadow bg-white rounded">
-    <div className="center">  <p  className="fs-4 mt-2 ms-3 mb-3 center">{ hotel[0].hotelName} </p></div> 
+
+    {show&& <Col className="details shadow bg-white rounded  col-sm-11  col-lg-6 ms-lg-0  mt-md-1   ms-sm-4">
+      
+    <div className="center ">  <p  className="fs-4 mt-2 ms-3 mb-3 center">{ hotel[0].hotelName} </p></div> 
    <p className="fs-4 ms-3" ><Rating/></p> 
-   <p className="fs-4 ms-3" > <MdPerson/> { hotel[0].guests} Guests</p>
-   <p className="fs-4 ms-3">  <MdBedroomParent/> { hotel[0].bedrooms} Bedrooms</p>
-   <p className="fs-4 ms-3"><FaBed/> { hotel[0].beds} Beds</p>
-   <p className="fs-4 ms-3"><MdBathroom/> { hotel[0].bathrooms} Bathrooms</p>
+   <div className="detail">
+   <p className="fs-4 ms-3" > <MdPerson/> { hotel[0].guests} Guests . <MdBedroomParent/> { hotel[0].bedrooms} Bedrooms . <FaBed/> { hotel[0].beds} Beds . <MdBathroom/> { hotel[0].bathrooms} WC</p>
+   
+   </div>
+   <hr/>
+   <p className="fs-4 ms-3"> { hotel[0].description} </p>
    <p className="fs-4 ms-3"><MdPriceChange/> { hotel[0].price} $/Night</p>
+ 
+  
+
    </Col>
    }
    
