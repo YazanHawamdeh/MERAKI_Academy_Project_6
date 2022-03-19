@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Container, Row, Col, Card,Carousel } from "react-bootstrap";
+import { Container, Row, Col, Button, Carousel,Modal,Form } from "react-bootstrap";
 import "./detail.css";
 import Rating from "./Rating";
 import Comment from "../Comment";
-import { FaBed } from 'react-icons/fa'
-import { MdPerson,MdBathroom,MdBedroomParent,MdPriceChange } from "react-icons/md";
-
+import { FaBed } from "react-icons/fa";
+import {
+  MdPerson,
+  MdBathroom,
+  MdBedroomParent,
+  MdPriceChange,
+} from "react-icons/md";
+import Swal from "sweetalert2";
 
 const Detail = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   let { id } = useParams();
   const [hotel, setHotel] = useState([]);
   const [images, setImages] = useState([]);
-  const [show, setShow] = useState(false);
+  const [show1, setShow1] = useState(false);
   const getHotel = async () => {
     await axios
       .get(`http://localhost:5000/hotels/search_id/${id}`)
@@ -27,7 +36,7 @@ const Detail = () => {
           res.data.result[0].image5,
         ]);
 
-        setShow(true);
+        setShow1(true);
       })
       .catch((err) => {
         console.log(err);
@@ -38,143 +47,133 @@ const Detail = () => {
     getHotel();
   }, []);
 
-  
+  const handleBooking=()=>{
+   
+      Swal.fire({
+        icon: "success",
+        title: "Booking successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      handleClose()
+  }
   const [index, setIndex] = useState(0);
-
-
-
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
   console.log(images);
 
-  return ( 
-<div  className="container-fluid col-11" style={{ marginTop: "100px" }}>
-    <Container fluid >
-  <Row xs={1}  lg={2}>
-    <Col className="d-flex align-items-center justify-content-center">
-    <Carousel  activeIndex={index} onSelect={handleSelect} style={{ height: "25rem",width :"40rem" }} >
-      {show&&images.map((elemnet)=>{
-        return(
-          <Carousel.Item interval={3000} >
-  <img
-    className="d-block w-100 " style={{ height: "25rem",borderRadius:"8px" }}
-    src={elemnet}
-    alt="First slide"
+  return (
+    <div className="container-fluid col-11" style={{ marginTop: "100px" }}>
+      <Container fluid>
+        <Row xs={1} lg={2}>
+          <Col className="d-flex align-items-center justify-content-center">
+            <Carousel
+              activeIndex={index}
+              onSelect={handleSelect}
+              style={{ height: "25rem", width: "40rem" }}
+            >
+              {show1 &&
+                images.map((elemnet) => {
+                  return (
+                    <Carousel.Item interval={3000}>
+                      <img
+                        className="d-block w-100 "
+                        style={{ height: "25rem", borderRadius: "8px" }}
+                        src={elemnet}
+                        alt="First slide"
+                      />
+                    </Carousel.Item>
+                  );
+                })}
+            </Carousel>
+          </Col>
 
-  />
+          {show1 && (
+            <Col className="details shadow bg-white rounded  col-sm-11  col-lg-6 ms-lg-0  mt-md-1   ms-sm-4">
+              <div className="center ">
+                {" "}
+                <p className="fs-4 mt-2 ms-3 mb-3 center">
+                  {hotel[0].hotelName}{" "}
+                </p>
+              </div>
+              <p className="fs-4 ms-3">
+                <Rating />
+              </p>
+              <div className="detail">
+                <p className="fs-4 ms-3">
+                  {" "}
+                  <MdPerson /> {hotel[0].guests} Guests . <MdBedroomParent />{" "}
+                  {hotel[0].bedrooms} Bedrooms . <FaBed /> {hotel[0].beds} Beds
+                  . <MdBathroom /> {hotel[0].bathrooms} WC
+                </p>
+              </div>
+              <hr />
+              <p className="fs-4 ms-3"> {hotel[0].description} </p>
+              <div className="booking">
+                <p className="fs-4 ms-3 price">
+                  <MdPriceChange /> {hotel[0].price} $/Night
+                </p>
+                <Button className="col-3 mb-3" variant="success" onClick={handleShow}>
+                  Booking Now
+                </Button>
+              </div>
+            </Col>
+          )}
+        </Row>
 
-</Carousel.Item>
+        <Modal  show={show} onHide={handleClose} >
+        <Modal.Header id="booking" closeButton>
+          <Modal.Title>Make Your Reservation</Modal.Title>
+          <img
+                        className="d-block w-100 "
+                        style={{ height: "15rem", borderRadius: "8px" }}
+                        src={show1&&hotel[0].image}
+                        alt="First slide"
+                      />
+        </Modal.Header>
+        <Modal.Body>
+        <Form>
+          <div className="date">
+          
+  <Form.Group className="mb-3 col-5">
+  <Form.Label>Check in</Form.Label>
+    <Form.Control type="date"  />
+  </Form.Group>
+  <Form.Group className="mb-3 col-5">
+  <Form.Label>Check out</Form.Label>
+    <Form.Control type="date"/>
+  </Form.Group>
+  </div>
+  
+  <div className="detailBooking">
+  <Form.Group className="mb-3 col-3" >
+  <Form.Label>Guests</Form.Label>
+    <Form.Control type="number" placeholder="Guests" />
+  </Form.Group>
+  <Form.Group className="mb-3 col-3" >
+  <Form.Label>Adults</Form.Label>
+    <Form.Control type="number" placeholder="Adults"  />
+  </Form.Group>
+  <Form.Group className="mb-3 col-3"  >
+  <Form.Label>KDS</Form.Label>
+    <Form.Control type="number" placeholder="KDS"  />
+  </Form.Group>
+  </div>
+</Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={()=>{handleBooking()}}>
+            Book Now
+          </Button>
+        </Modal.Footer>
+      </Modal>
+   
+      </Container>
 
-        )
-      })}
-
-
-
-
-</Carousel>
-
-    </Col >
-
-    {show&& <Col className="details shadow bg-white rounded  col-sm-11  col-lg-6 ms-lg-0  mt-md-1   ms-sm-4">
       
-    <div className="center ">  <p  className="fs-4 mt-2 ms-3 mb-3 center">{ hotel[0].hotelName} </p></div> 
-   <p className="fs-4 ms-3" ><Rating/></p> 
-   <div className="detail">
-   <p className="fs-4 ms-3" > <MdPerson/> { hotel[0].guests} Guests . <MdBedroomParent/> { hotel[0].bedrooms} Bedrooms . <FaBed/> { hotel[0].beds} Beds . <MdBathroom/> { hotel[0].bathrooms} WC</p>
-   
-   </div>
-   <hr/>
-   <p className="fs-4 ms-3"> { hotel[0].description} </p>
-   <p className="fs-4 ms-3"><MdPriceChange/> { hotel[0].price} $/Night</p>
- 
-  
-
-   </Col>
-   }
-   
-    
-  </Row>
-  
-</Container>
-</div>
-// 
-  
-
-//     <Container   >
-//     <Row className="col-12">
-//     <h2 className="ms-2"> <Rating/></h2> 
-//     </Row >
-//   <Row >
-
-
-//     <Col >
-    
-  
-
-// </Col>
-// {show&&<div className="ms-2 mt-1 col-6" style={{ display:"flex",justifyContent:"space-between"} }>
-// <p className="fs-4" > { hotel[0].guests} { hotel[0].bedrooms} {hotel[0].beds}  { hotel[0].bathrooms}</p> 
-// <p className="fs-4"> {hotel[0].price}$/night</p> 
-// </div>}
-
-
-//   </Row>
-//   <Comment id={show&&hotel[0].id} />
-
-// </Container>
-// </div>
-
-    
-    
-    // <Container fluid col-11>
-    //   <Row className="g-4">
-    //     <Col  lg={2} >
-    //       <img src={show&&hotel[0].image} style={{ height: "300px"}} alt="" />
-    //     </Col >
-    //     {images.map((element) => (
-    //       <Col col-xl-3 col-sm-6 d-flex-wrap >
-    //         <Card className="shadow  bg-body rounded" >
-    //           <Card.Img
-    //             variant="top"
-    //             src={element}
-    //             style={{ height: "150px" }}
-    //           />
-    //         </Card>
-    //       </Col>
-    //     ))}
-    //   </Row>
-    // </Container>
-    //     <div class="container-fluid col-11">
-
-    //         <div className='row mt-5'>
-
-    //         {hotel.map(hotel=>{
-    //             return (
-    //                 <div class="col col-xl-3 col-sm-6">
-    //                  <div class=" ">
-    //                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded " style={{height:"360px" }} alt="Hollywood Sign on The Hill"/>
-    //                    <div class="card-body ">
-    //                      <div className='row'>
-    //                      <div className='col-xl-6'>
-    //                      <h5 class="card-title" style={{height:"20px"}}> {hotel.hotelName}</h5>
-    //                      </div>
-    //                      <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
-    //                        <p >price: {hotel.price}</p>
-    //                      </div></div>
-    //                      <p >
-    //                       <p className='col'>{hotel.description}</p>
-    //                      </p>
-    //                    </div>
-
-    //                  </div>
-    //                </div>
-
-    //             )
-    //         })}</div>
-
-    //  </div>
+    </div>
   );
 };
 export default Detail;
