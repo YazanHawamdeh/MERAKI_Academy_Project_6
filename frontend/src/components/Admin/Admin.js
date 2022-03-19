@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Container, Modal,Form,Table,Pagination } from "react-bootstrap";
 import "./Admin.css"
+import UploadFile from "./Upload";
+import Swal from "sweetalert2";
 
 const Admin =()=>{
   const [hotels,setHotels]=useState([])
@@ -48,6 +50,12 @@ const [city_id,setCity_id]=useState("")
      await   axios.post("http://localhost:5000/hotels",body)
      .then((result)=>{
       getHotels()
+      Swal.fire({
+        icon: "success",
+        title: "created successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
      })
          
 
@@ -115,24 +123,24 @@ const [city_id,setCity_id]=useState("")
   </Form.Group>
   <div className="image">
   <Form.Group className="mb-3 col-5" >
-    
-    <Form.Control type="file" placeholder="Image"  onChange={(e)=>{setImage(e.target.value)}}/>
+  <UploadFile setImage={setImage} />
+    {/* <Form.Control type="file" placeholder="Image"  onChange={(e)=>{setImage(e.target.value)}}/> */}
   </Form.Group>
   <Form.Group className="mb-3 col-5"  placeholder="Image2">
-    
-    <Form.Control type="file" placeholder="Image2"  onChange={(e)=>{setImage2(e.target.value)}}/>
+  <UploadFile setImage={setImage2} />
+    {/* <Form.Control type="file" placeholder="Image2"  onChange={(e)=>{setImage2(e.target.value)}}/> */}
   </Form.Group>
   <Form.Group className="mb-3 col-5"  placeholder="Image2">
-    
-    <Form.Control type="file" placeholder="Image3"  onChange={(e)=>{setImage3(e.target.value)}}/>
+  <UploadFile setImage={setImage3} />
+    {/* <Form.Control type="file" placeholder="Image3"  onChange={(e)=>{setImage3(e.target.value)}}/> */}
   </Form.Group>
   <Form.Group className="mb-3 col-5"  placeholder="Image4">
-    
-    <Form.Control type="file" placeholder="Image4"  onChange={(e)=>{setImage4(e.target.value)}}/>
+  <UploadFile setImage={setImage4} />
+    {/* <Form.Control type="file" placeholder="Image4"  onChange={(e)=>{setImage4(e.target.value)}}/> */}
   </Form.Group>
   <Form.Group className="mb-3 col-5"  placeholder="Image5">
-    
-    <Form.Control type="file" placeholder="Image5"  onChange={(e)=>{setImage5(e.target.value)}}/>
+  <UploadFile setImage={setImage5} />
+    {/* <Form.Control type="file" placeholder="Image5"  onChange={(e)=>{setImage5(e.target.value)}}/> */}
   </Form.Group>
   </div>
   <div className="detailAdmin">
@@ -170,7 +178,7 @@ const [city_id,setCity_id]=useState("")
           </Modal.Body>
           <Modal.Footer>
             
-            <Button variant="primary" className="col-12" onClick={()=>{createHotel()}}>Create</Button>
+            <Button variant="success" className="col-12" onClick={()=>{createHotel()}}>Create</Button>
           </Modal.Footer>
         </Modal>
 
