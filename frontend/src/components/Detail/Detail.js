@@ -66,7 +66,7 @@ const [show2, setShow2] = useState(false);
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-  console.log(images);
+  
 
   return (
     <div className="container-fluid col-11" style={{ marginTop: "100px" }}>
@@ -197,6 +197,7 @@ const [show2, setShow2] = useState(false);
           
         </Modal>
       </Container>
+      <Comment id={show1 && hotel[0].id}/>
     </div>
   );
 };

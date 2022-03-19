@@ -95,7 +95,7 @@ const Comment = ({ id }) => {
   return (
     <>
       {state.isLoggedIn ? (
-        <div className="writeComment-continar">
+        <div className="writeComment-continar ms-4">
           <div className="writeComment">
             <input
               className="commentHere"
@@ -104,9 +104,10 @@ const Comment = ({ id }) => {
               onChange={(e) => setComment(e.target.value)}
             />
             <HiOutlinePencilAlt
+            style={{cursor:"pointer"}}
               size={35}
               className="addComment m-4"
-              onClick={createNewComment}
+              onClick={()=>{createNewComment()}}
             />
           </div><br/>
         </div>
@@ -118,8 +119,8 @@ const Comment = ({ id }) => {
           <div>
             <div className="CommentDiv" key={index}>
               <div className="test4-continar">
-                <div className="test4 row">
-                  <div className="col-lg-10 col-sm-10"  style={{boxShadow:" 4px 4px 4px 4px rgba(0, 0, 0, 0.1), 6px 6px 6px 6px rgba(0, 0, 0, 0.1)",
+                <div className="test4 row ms-1">
+                  <div className="col-lg-6 col-sm-6 ms-3"  style={{boxShadow:" 4px 4px 4px 4px rgba(0, 0, 0, 0.1), 6px 6px 6px 6px rgba(0, 0, 0, 0.1)",
 padding:"15px"
 
 }}>
@@ -130,7 +131,7 @@ padding:"15px"
 
                   {userName == comment.commenter ? (
                     <AiOutlineDelete
-                    style={{width:"120px"}}
+                    style={{width:"120px",cursor:"pointer"}}
                       size={35}
                       className="delComment col-lg-2 col-sm-2 mt-4"
                       onClick={() =>
