@@ -1,17 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setHotels } from "../reducer/hotels"; 
 import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import Swal from "sweetalert2";
+
+import { BsFillHeartFill } from 'react-icons/bs';
 
 const TopRating = () => {
+    const [show,setShow]=useState(false)
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
   const state = useSelector((state) => {
     return {
-      hotels: state.citiesReducer.hotels,
+      hotels: state.hotelsReducer.hotels,
     };
   });
 
@@ -21,41 +25,86 @@ const TopRating = () => {
       .get("http://localhost:5000/hotels/search_city/4")
       .then((result) => {
         dispatch(setHotels(result.data.result));
+        console.log(result.data.result);
+        setShow(true)
       })
       .catch((err) => {
         throw err;
+      });
+  };
+
+  //=====================================
+  const addToWishList = async (id) => {
+    const headers = {
+      Authorization: `Bearer ${state.token}`,
+    };
+    await axios
+      .post(`http://localhost:5000/wishList/${id}`, {}, { headers })
+      .then((res) => {
+
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
   useEffect(() => {
     getTopRating();
   }, []);
 
-
+console.log(state.hotels);
   //========================================
-  return (
-      <div className="container-fluid col-11 ">
-      <h2 className="mb-3  mt-5 mb-5  display-5 fw-bold">Top Rating</h2>
-      <Row xs={1} md={2} lg={4} className="g-4">
-        {state.hotels.map((element) => (
-          <Col>
-            <Card className="shadow  bg-body rounded">
-              <Card.Img
-                variant="top"
-                src={element.image}
-                onClick={() => {
-                  navigate(`/hotels`);
-                }}
-                style={{ cursor: "pointer", height: "300px" }}
-              />
-              <Card.Body>
-                <Card.Title>{element.name}</Card.Title>
-                <Card.Text>{element.description}</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-      </div>
-  );
+ 
+    return (
+        <div class="container-fluid col-11 ">
+    
+        <div className='row ' >
+    
+        {show&&state.hotels.map(hotel=>{
+            return (
+                <div class="col col-xl-3 col-lg-3 col-md-3  col-sm-6 " style={{paddingLeft:"0",paddingRight:"0",  boxShadow:" 5px 10px 8px #888888"
+                ,width:"23%",margin:"12px"
+              }}>
+                 <div class="container1" >
+            <div onClick={() => {
+              navigate(`/detail/${hotel.id}`)
+    
+            }}>
+              {/* <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded img1" style={{ height: "360px" }} alt="Hollywood Sign on The Hill" /> */}
+              {/* <div>{hotel.image}</div> */}
+              <img src={hotel.image} class="card-img-top rounded img1" style={{ height: "360px" }} alt=""></img>
+    
+            </div>
+            <div class="button1 
+    "><BsFillHeartFill class="test"  size={50} onClick={() => {
+                        Swal.fire({
+                          icon: "success",
+                          title: "Added successfully to wishList",
+                          showConfirmButton: false,
+                          timer: 1500,
+                        });
+    
+                        addToWishList(hotel.id);
+                      }} /> </div>
+    
+          </div>
+    
+    
+          <div className='row' style={{ marginTop: "80px" }}>
+            <div className='col-xl-8 '>
+              <h5 class="card-title1" style={{ height: "20px" }} onClick={()=>{
+                  navigate(`/detail/${hotel.id}`)
+        
+              }}> {hotel.hotelName}</h5>
+            </div>
+            <div className='col-xl-4 d-flex flex-row-reverse bd-highlight '>
+              <p className="price">{"$"+hotel.price}/night</p>
+            </div></div>
+               </div>
+    
+            )
+        })}</div>                        
+    
+    </div>
+      )
 };
 export default TopRating;
