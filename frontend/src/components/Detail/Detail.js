@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Container, Row, Col, Button, Carousel,Modal,Form } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Carousel,
+  Modal,
+  Form,
+} from "react-bootstrap";
 import "./detail.css";
 import Rating from "./Rating";
 import Comment from "../Comment";
@@ -13,11 +21,12 @@ import {
   MdPriceChange,
 } from "react-icons/md";
 import Swal from "sweetalert2";
+import StripePayment from "../Stripe/StripContainer";
 
 const Detail = () => {
   const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
+const [show2, setShow2] = useState(false);
+  const handleClose = () => {setShow(false)};
   const handleShow = () => setShow(true);
   let { id } = useParams();
   const [hotel, setHotel] = useState([]);
@@ -47,16 +56,11 @@ const Detail = () => {
     getHotel();
   }, []);
 
-  const handleBooking=()=>{
-   
-      Swal.fire({
-        icon: "success",
-        title: "Booking successfully",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      handleClose()
-  }
+  const handleBooking = () => {
+    
+    handleClose();
+    setShow2(true)
+  };
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -115,7 +119,11 @@ const Detail = () => {
                 <p className="fs-4 ms-3 price">
                   <MdPriceChange /> {hotel[0].price} $/Night
                 </p>
-                <Button className="col-3 mb-3" variant="success" onClick={handleShow}>
+                <Button
+                  className="col-3 mb-3"
+                  variant="success"
+                  onClick={handleShow}
+                >
                   Booking Now
                 </Button>
               </div>
@@ -123,20 +131,73 @@ const Detail = () => {
           )}
         </Row>
 
-        <Modal  show={show} onHide={handleClose} >
-        <Modal.Header id="booking" closeButton>
-          <Modal.Title>Make Your Reservation</Modal.Title>
-          <img
-                        className="d-block w-100 "
-                        style={{ height: "15rem", borderRadius: "8px" }}
-                        src={show1&&hotel[0].image}
-                        alt="First slide"
-                      />
-        </Modal.Header>
-        <Modal.Body>
-        <Form>
-          <div className="date">
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header id="booking" closeButton>
+            <Modal.Title>Make Your Reservation</Modal.Title>
+            <img
+              className="d-block w-100 "
+              style={{ height: "15rem", borderRadius: "8px" }}
+              src={show1 && hotel[0].image}
+              alt="First slide"
+            />
+          </Modal.Header>
+          <Modal.Body>
+            
+            <Form>
+              <div className="date">
+                <Form.Group className="mb-3 col-5">
+                  <Form.Label>Check in</Form.Label>
+                  <Form.Control type="date" />
+                </Form.Group>
+                <Form.Group className="mb-3 col-5">
+                  <Form.Label>Check out</Form.Label>
+                  <Form.Control type="date" />
+                </Form.Group>
+              </div>
+
+              <div className="detailBooking">
+                <Form.Group className="mb-3 col-3">
+                  <Form.Label>Guests</Form.Label>
+                  <Form.Control type="number" placeholder="Guests" />
+                </Form.Group>
+                <Form.Group className="mb-3 col-3">
+                  <Form.Label>Adults</Form.Label>
+                  <Form.Control type="number" placeholder="Adults" />
+                </Form.Group>
+                <Form.Group className="mb-3 col-3">
+                  <Form.Label>KDS</Form.Label>
+                  <Form.Control type="number" placeholder="KDS" />
+                </Form.Group>
+              </div>
+            </Form>
+              
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="success"
+              onClick={() => {
+                handleBooking();
+              }}
+            >
+              Book Now
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        {/* payment */}
+        <Modal show={show2} onHide={() => setShow2(false)}>
+          <Modal.Header  closeButton>
+            <Modal.Title>Payment</Modal.Title>
+            
+          </Modal.Header>
+          <Modal.Body>
+            
+           
+              <StripePayment/>
+          </Modal.Body>
           
+
+        </Modal>
+      </Container>
   <Form.Group className="mb-3 col-5">
   <Form.Label>Check in</Form.Label>
     <Form.Control type="date"  />
@@ -169,11 +230,7 @@ const Detail = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-   
-  
       </Container>
-     
-      
     </div>
   );
 };

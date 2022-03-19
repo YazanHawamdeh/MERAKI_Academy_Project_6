@@ -17,7 +17,7 @@ import Detail from "./components/Detail/Detail";
 
 import Search from "./components/Search/Search";
 import Admin from "./components/Admin/Admin";
-
+import StripePayment from "./components/Stripe/StripContainer";
 //===============================================================
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
         <Route path="/hotels" element={<Hotels />} />
         <Route path="/wishList" element={<WishList />} />
         <Route path="/detail/:id" element={<Detail />} />
-
+        <Route path="/payment" element={<StripePayment />} />
         <Route path="/search" element={<Search hotelName={hotelName} />} />
         <Route path="/" element={<Home />} />
         <Route
