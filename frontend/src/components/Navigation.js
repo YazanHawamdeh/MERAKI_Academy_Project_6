@@ -5,15 +5,13 @@ import Login from "./Login";
 import { logout } from "../reducer/login/index";
 import { useDispatch, useSelector } from "react-redux";
 
-import { BsSearch,BsHeart } from "react-icons/bs";
+import { BsSearch, BsHeart } from "react-icons/bs";
 
 import {
   Container,
   Navbar,
   Nav,
-  NavDropdown,
   Form,
-  FormControl,
   Button,
   FloatingLabel,
   Modal,
@@ -30,7 +28,7 @@ const Navigation = ({ setHotelName }) => {
 
   const dispatch = useDispatch();
   const history = useNavigate();
-  // const [active, setActive] = useState(false);
+
   const [show, setShow] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
@@ -40,21 +38,17 @@ const Navigation = ({ setHotelName }) => {
     <>
       <Navbar bg="light" expand="lg" className="px-4 py-0 fixed-top  ">
         <Container fluid>
-       
-          <Navbar.Brand href="/home"> <img src="https://res.cloudinary.com/cryptoteam/image/upload/v1647340869/g4jvlsgejyfssvm95fud.svg" width={165} height={50} alt="Good Night"/></Navbar.Brand>
+          <Navbar.Brand href="/home">
+            {" "}
+            <img
+              src="https://res.cloudinary.com/cryptoteam/image/upload/v1647340869/g4jvlsgejyfssvm95fud.svg"
+              width={165}
+              height={50}
+              alt="Good Night"
+            />
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll " className="py-2 mt-2 ">
-            {/* <Form className="d-flex ms-auto ">
-              
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form> */}
-
             <div
               className="header-search  d-flex ms-auto d-md-inline-flex align-items-center"
               data-bs-toggle="modal"
@@ -79,47 +73,46 @@ const Navigation = ({ setHotelName }) => {
               </Button>
             </div>
 
-            
             <Modal
               show={show}
               fullscreen={true}
               style={{ maxHeight: "18%" }}
               onHide={() => setShow(false)}
             >
-              {/* <Modal.Header closeButton>Find Your Place</Modal.Header> */}
-{/* <div className="d-flex align-items-center justify-content-center "> */}
               <div className="row mt-4 d-flex align-items-center justify-content-center ">
                 <div className="col-lg-11 col-sm-11 w-50">
-              <Modal.Body style={{    paddingRight: '0px'}}>
-                <FloatingLabel
-                  controlId="floatingInput"
-                  label="where do you want to go?"
-                  className=" mb-3 w-100"
+                  <Modal.Body style={{ paddingRight: "0px" }}>
+                    <FloatingLabel
+                      controlId="floatingInput"
+                      label="where do you want to go?"
+                      className=" mb-3 w-100"
+                    >
+                      <Form.Control
+                        onChange={(e) => {
+                          setHotelName(e.target.value);
+                        }}
+                        className="w-100"
+                        type="search"
+                        placeholder="..."
+                      />
+                    </FloatingLabel>
+                  </Modal.Body>
+                </div>
+                <div
+                  className="col-lg-1 col-sm-1 mb-3  "
+                  style={{ paddingLeft: "0" }}
                 >
-                  
-                   
-                  <Form.Control  onChange={(e) => {
-                   
-                      setHotelName(e.target.value);
-                    }}  className="w-100"  type="search" placeholder="..." />
-
-
-               
-
-                </FloatingLabel>
-              </Modal.Body></div>
-<div className="col-lg-1 col-sm-1 mb-3" style={{    paddingLeft: '0'
-}}>
-              <Link className="searchIcon" to="/search">
-                    <BsSearch variant="success" size={25}/>
+                  <Link
+                    style={{ color: "#198754" }}
+                    className="searchIcon"
+                    to="/search"
+                  >
+                    <BsSearch variant="success" size={25} />
                   </Link>
-                  </div>
-                  </div>
-                  
+                </div>
+              </div>
             </Modal>
 
-
-           
             <Modal
               show={showLogin}
               size="md"
@@ -135,8 +128,7 @@ const Navigation = ({ setHotelName }) => {
               </Modal.Body>
               <Modal.Footer style={{ justifyContent: "center" }}>
                 <div className="mt-4 text-center ">
-                  {" "}
-                  Don't have an account?{" "}
+                  Don't have an account?
                   <span
                     style={{
                       color: "blue",
@@ -148,8 +140,7 @@ const Navigation = ({ setHotelName }) => {
                       setShowSignup(true);
                     }}
                   >
-                    {" "}
-                    Sign up{" "}
+                    Sign up
                   </span>
                 </div>
               </Modal.Footer>
@@ -166,8 +157,6 @@ const Navigation = ({ setHotelName }) => {
                 <Modal.Title>Sign up</Modal.Title>
               </Modal.Header>
 
-
-             
               <Modal.Body>
                 <Register
                   setShowSignup={setShowSignup}
@@ -203,22 +192,37 @@ const Navigation = ({ setHotelName }) => {
             >
               {!state.isLoggedIn ? (
                 <>
-                
-                  <Nav.Link className="fw-bold" style={{color:"#198754"}} onClick={() => setShowLogin(true)}>Log in</Nav.Link>
-                  <Nav.Link className="fw-bold" style={{color:"#198754"}} onClick={() => setShowSignup(true)}>
+                  <Nav.Link
+                    className="fw-bold"
+                    style={{ color: "#198754" }}
+                    onClick={() => setShowLogin(true)}
+                  >
+                    Log in
+                  </Nav.Link>
+                  <Nav.Link
+                    className="fw-bold"
+                    style={{ color: "#198754" }}
+                    onClick={() => setShowSignup(true)}
+                  >
                     Sign up
                   </Nav.Link>
                 </>
               ) : (
                 <>
-                <BsHeart size={25} className="fw-bold mt-2" style={{color:"#198754",cursor:"pointer"}} onClick={() => {
-                  navigate("/wishList")
-                  }} />
-                  <Nav.Link className="fw-bold" style={{color:"#198754"}}>{localStorage.getItem("userName")}</Nav.Link>
+                  <BsHeart
+                    size={25}
+                    className="fw-bold mt-2"
+                    style={{ color: "#198754", cursor: "pointer" }}
+                    onClick={() => {
+                      navigate("/wishList");
+                    }}
+                  />
+                  <Nav.Link className="fw-bold" style={{ color: "#198754" }}>
+                    {localStorage.getItem("userName")}
+                  </Nav.Link>
 
                   <Nav.Link
                     className="auth-button"
-                   
                     onClick={() => {
                       dispatch(logout());
                       localStorage.clear();
@@ -226,23 +230,12 @@ const Navigation = ({ setHotelName }) => {
                     }}
                     to="/home"
                   >
-                    <MdLogout style={{color:"#198754"}} size={25} />
+                    <MdLogout style={{ color: "#198754" }} size={25} />
                   </Nav.Link>
                 </>
               )}
-
-              {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action5">
-            Something else here
-          </NavDropdown.Item>
-        </NavDropdown>
-         */}
             </Nav>
           </Navbar.Collapse>
-         
         </Container>
       </Navbar>
     </>
