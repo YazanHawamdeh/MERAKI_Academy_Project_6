@@ -86,7 +86,7 @@ const Hotels = () => {
           <img src={hotel.image} class="card-img-top rounded img1" style={{ height: "360px" }}></img>
 
         </div>
-        <div class="button1 
+        <div class="button2 
 "><BsFillHeartFill class="test"  size={50} onClick={() => {
                     Swal.fire({
                       icon: "success",
