@@ -21,7 +21,7 @@ const hotelsRouter = require("./routes/hotels");
 const citiesRouter = require("./routes/cities");
 const wishListRouter = require("./routes/wishList")
 const ratingsRouter =require('./routes/ratings')
-
+const stripe = require("./routes/stripe");
 const commentsRouter = require("./routes/comments");
 
 
@@ -35,7 +35,7 @@ app.use("/hotels", hotelsRouter);
 app.use("/cities", citiesRouter);
 app.use("/wishList",wishListRouter)
 app.use("/rate",ratingsRouter)
-
+app.use("/payment", stripe);
 app.use(commentsRouter);
 
 
