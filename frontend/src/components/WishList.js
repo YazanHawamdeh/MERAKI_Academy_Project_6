@@ -69,10 +69,10 @@ const getMyWishLists = async () => {
                   navigate(`/detail/${hotel.id}`)
 
                 }}>
-                  <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded img1" style={{ height: "360px" }} alt="Hollywood Sign on The Hill" />
+          <img src={hotel.image} class="card-img-top rounded img1" style={{ height: "360px" }}></img>
 
                 </div>
-                <div class="button1 
+                <div class="button2 
 "><RiDeleteBinLine size={45} onClick={() => Swal.fire({
                   title: "Are you sure?",
                   text: "You won't be able to revert this!",
@@ -95,7 +95,7 @@ const getMyWishLists = async () => {
 
               <div className='row' style={{ marginTop: "80px" }}>
                 <div className='col-xl-8 '>
-                  <h5 class="card-title" style={{ height: "20px" }}> {hotel.hotelName}</h5>
+                  <h5 class="card-title" style={{ height: "20px",marginLeft:"10px" }}> {hotel.hotelName}</h5>
                 </div>
                 <div className='col-xl-4 d-flex flex-row-reverse bd-highlight '>
                   <p className="price"> {"$"+hotel.price}/night</p>
