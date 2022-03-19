@@ -70,7 +70,7 @@ const Search = ({ hotelName }) => {
                     <div class="col col-xl-3 col-sm-6">
                       <div class=" ">
                         <img
-                          src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp"
+                          src={hotel.image}
                           class="card-img-top rounded "
                           style={{ height: "360px" }}
                           alt="Hollywood Sign on The Hill"
@@ -108,7 +108,7 @@ const Search = ({ hotelName }) => {
             <>
               <img
                 className="notFound"
-                src="https://res.cloudinary.com/cryptoteam/image/upload/v1644926255/lpowmgomvblf3gcb7exj.svg"
+                src="https://res.cloudinary.com/cryptoteam/image/upload/v1647712664/pryqq1blxc1rs8osuqk5.svg"
                 alt="Not found !!"
               />
             </>
