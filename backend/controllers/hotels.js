@@ -113,10 +113,26 @@ const gethotelById = (req, res) => {
   });
 };
 //===============================================
+// const gethotelsBycity = (req, res) => {
+//   const query = `SELECT  hotels.*,city.name FROM hotels inner Join city on city_id =city.id  WHERE hotels.is_deleted=0 AND city.id=?;`;
+//   const cityName = req.params.city_id;
+//   connection.query(query, cityName, (err, result) => {
+//     if (err) {
+//       res.json({ success: false, massege: "the hotels not found", err: err });
+//       res.status(404);
+//     } else {
+//       res.json({ success: true, massege: ` the hotels `, result: result });
+//       res.status(200);
+//     }
+//   });
+// };
+
+//=====================================================
 const gethotelsBycity = (req, res) => {
-  const query = `SELECT  hotels.*,city.name FROM hotels inner Join city on city_id =city.id  WHERE hotels.is_deleted=0 AND city.name=?;`;
-  const cityName = req.params.name;
-  connection.query(query, cityName, (err, result) => {
+  const query = `SELECT * FROM hotels WHERE is_deleted=0 AND city_id = ${req.params.id};`;
+  
+  
+  connection.query(query, (err, result) => {
     if (err) {
       res.json({ success: false, massege: "the hotels not found", err: err });
       res.status(404);
