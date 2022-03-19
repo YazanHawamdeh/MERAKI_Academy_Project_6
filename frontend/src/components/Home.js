@@ -40,8 +40,10 @@ const Home = () => {
               alt="First slide"
             />
             <Carousel.Caption >
-            <h1 style={{display: 'flex',paddingBottom:"300px",color:"black",fontSize:'60px',fontFamily:'auto'}}>GOOD NIGHT</h1>
-            {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
+              <div style={{paddingBottom:'300px'}}>
+            <h1 style={{display: 'flex',color:"black",fontSize:'70px',}}>GOOD NIGHT</h1>
+            <p style={{display: 'flex',color:"black",fontSize:'35px'}}>Find your next stay</p>
+            {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}</div>
           </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={3000}>
@@ -52,7 +54,7 @@ const Home = () => {
           "
               alt="Second slide"
             />
-              <Carousel.Caption style={{paddingBottom:"300px",color:"black",fontSize:'25px',fontFamily:'auto'}}>
+              <Carousel.Caption style={{paddingBottom:"300px",color:"black",fontSize:'25px'}}>
               <h1 style={{color:"black",fontSize:'60px'}}>FOR MORE CONFORT</h1>
             <p>We have different types of rooms that contain th finest types of furniture and services</p>
           </Carousel.Caption>
@@ -66,8 +68,8 @@ const Home = () => {
               alt="Third slide"
             />
 
-            <Carousel.Caption style={{paddingBottom:"300px",color:"black",fontSize:'25px',fontFamily:'auto'}}>
-            <h1 style={{color:"black",fontSize:'60px',fontFamily:'auto'}}>FOR MORE ENJOYMENT</h1>
+            <Carousel.Caption style={{paddingBottom:"300px",color:"black",fontSize:'25px'}}>
+            <h1 style={{color:"black",fontSize:'60px'}}>FOR MORE ENJOYMENT</h1>
             <p>
               We have beautiful places with great views
             </p>
@@ -193,8 +195,10 @@ const Home = () => {
             id="community-banner-item0"
           >
             <img
-              src="https://res.cloudinary.com/cryptoteam/image/upload/v1647163614/jqkioieksxplls8zfsuu.jpg"
+              src="https://res-console.cloudinary.com/cryptoteam/thumbnails/v1/image/upload/v1647163614/anFraW9pZWtzeHBsbHM4emZzdXU=/preview"
               className="w-100 rounded-circle"
+              style={{height:"400px"}}
+
               alt="error"
             />
 
@@ -215,8 +219,9 @@ const Home = () => {
             id="community-banner-item0"
           >
             <img
-              src="https://res.cloudinary.com/cryptoteam/image/upload/v1647163614/jqkioieksxplls8zfsuu.jpg"
-              //  style={{width:"80%"}}
+              src="https://res.cloudinary.com/cryptoteam/image/upload/v1647701291/tfdrts9s9wvnnepfd5qj.jpg"
+              style={{height:"400px"}}
+
               alt="error"
               className="w-100 rounded-circle"
             />
@@ -238,8 +243,9 @@ const Home = () => {
             id="community-banner-item0"
           >
             <img
-              src="https://res.cloudinary.com/cryptoteam/image/upload/v1647163614/jqkioieksxplls8zfsuu.jpg"
-              //  style={{width:"80%"}}
+              src="https://res-console.cloudinary.com/cryptoteam/thumbnails/transform/v1/image/upload//v1647701499/b3ZhbXo0ZzBmeXN1a2xhMHFuMnM=/drilldown
+              "
+               style={{height:"400px"}}
               className="w-100 rounded-circle"
               alt="error"
             />

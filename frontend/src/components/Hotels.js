@@ -74,7 +74,7 @@ const Hotels = () => {
     {show&&state.hotels.map(hotel=>{
         return (
             <div class="col col-xl-3  col-sm-6 " style={{paddingLeft:"0",paddingRight:"0",  boxShadow:" 5px 10px 8px #888888"
-            ,width:"355px",margin:"15px"
+            ,width:"355px",margin:"12px"
           }}>
              <div class="container1" >
         <div onClick={() => {
