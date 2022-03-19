@@ -66,7 +66,7 @@ const [show2, setShow2] = useState(false);
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
- 
+  console.log(images);
 
   return (
     <div className="container-fluid col-11" style={{ marginTop: "100px" }}>
@@ -195,41 +195,7 @@ const [show2, setShow2] = useState(false);
               <StripePayment/>
           </Modal.Body>
           
-
         </Modal>
-      </Container>
-  <Form.Group className="mb-3 col-5">
-  <Form.Label>Check in</Form.Label>
-    <Form.Control type="date"  />
-  </Form.Group>
-  <Form.Group className="mb-3 col-5">
-  <Form.Label>Check out</Form.Label>
-    <Form.Control type="date"/>
-  </Form.Group>
-  </div>
-  
-  <div className="detailBooking">
-  <Form.Group className="mb-3 col-3" >
-  <Form.Label>Guests</Form.Label>
-    <Form.Control type="number" placeholder="Guests" />
-  </Form.Group>
-  <Form.Group className="mb-3 col-3" >
-  <Form.Label>Adults</Form.Label>
-    <Form.Control type="number" placeholder="Adults"  />
-  </Form.Group>
-  <Form.Group className="mb-3 col-3"  >
-  <Form.Label>KDS</Form.Label>
-    <Form.Control type="number" placeholder="KDS"  />
-  </Form.Group>
-  </div>
-</Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="success" onClick={()=>{handleBooking()}}>
-            Book Now
-          </Button>
-        </Modal.Footer>
-      </Modal>
       </Container>
     </div>
   );
