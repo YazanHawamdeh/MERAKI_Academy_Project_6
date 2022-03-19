@@ -61,8 +61,8 @@ console.log(state.hotels);
     
         {show&&state.hotels.map(hotel=>{
             return (
-                <div class="col col-xl-3 col-lg-3 col-md-3  col-sm-6 " style={{paddingLeft:"0",paddingRight:"0",  boxShadow:" 5px 10px 8px #888888"
-                ,width:"23%",margin:"12px"
+                <div class=" col-xl-3 col-lg-3 col-md-3  col-sm-3 " style={{paddingLeft:"0",paddingRight:"0",  boxShadow:" 5px 10px 8px #888888"
+                ,width:"23%",marginLeft:"15px"
               }}>
                  <div class="container1" >
             <div onClick={() => {
@@ -75,7 +75,10 @@ console.log(state.hotels);
     
             </div>
             <div class="button1 
-    "><BsFillHeartFill class="test"  size={50} onClick={() => {
+        
+    "
+    style={{width:"300px"}}
+    ><BsFillHeartFill class="test"  size={50} onClick={() => {
                         Swal.fire({
                           icon: "success",
                           title: "Added successfully to wishList",
