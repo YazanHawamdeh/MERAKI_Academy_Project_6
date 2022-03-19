@@ -3,6 +3,8 @@
 background-repeat: no-repeat;
 height: 30rem   !important;
 background-size: cover;
+margin-top: 100px !important;
+margin-bottom: 100px !important;
 }
 .c{
     color: black;

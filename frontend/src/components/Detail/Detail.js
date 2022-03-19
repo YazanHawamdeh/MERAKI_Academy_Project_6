@@ -62,7 +62,7 @@ const Detail = () => {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-  console.log(images);
+ 
 
   return (
     <div className="container-fluid col-11" style={{ marginTop: "100px" }}>
@@ -170,8 +170,9 @@ const Detail = () => {
         </Modal.Footer>
       </Modal>
    
+  
       </Container>
-
+     
       
     </div>
   );
