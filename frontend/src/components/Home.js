@@ -7,6 +7,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setCities } from ".././reducer/cities";
 import Cities from "./Cities";
+import TopRating from "./TopRating";
 
 
 
@@ -82,9 +83,9 @@ const Home = () => {
       <Cities />
       <br /> <br />
       <br />
-      {/* <h2 className="mb-3  mt-5 mb-5  container-fluid col-11 display-5 fw-bold">
+      <h2 className="mb-3  mt-5 mb-5  container-fluid col-11 display-5 fw-bold">
         TOP RAITNG HOTELS
-      </h2> */}
+      </h2>
       {/* <div
         className="container-fluid col-11 "
         style={{ position: "relative", zIndex: "-1" }}
@@ -188,6 +189,7 @@ const Home = () => {
           ></img>
         </div>
       </div> */}
+      <TopRating/>
       <div className="container-fluid col-11 mt-5 mb-5">
         <div className="row">
           <div

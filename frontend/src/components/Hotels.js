@@ -102,14 +102,14 @@ const Hotels = () => {
 
 
       <div className='row' style={{ marginTop: "80px" }}>
-        <div className='col-xl-6 '>
+        <div className='col-xl-8 '>
           <h5 class="card-title1" style={{ height: "20px" }} onClick={()=>{
               navigate(`/detail/${hotel.id}`)
     
           }}> {hotel.hotelName}</h5>
         </div>
-        <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
-          <p className="price">price: ${hotel.price}</p>
+        <div className='col-xl-4 d-flex flex-row-reverse bd-highlight '>
+          <p className="price">{"$"+hotel.price}/night</p>
         </div></div>
            </div>
 
