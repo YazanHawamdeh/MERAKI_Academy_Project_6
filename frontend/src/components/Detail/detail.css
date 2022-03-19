@@ -28,3 +28,32 @@
     align-items: center;
     gap: 8px;
 }
+
+.price{
+    display: inline-block;
+    
+}
+.booking{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.date{
+    display: flex;
+    justify-content: space-between;
+}
+.detailBooking{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 5px;
+}
+.modelBooking{
+   
+    color: #fff;
+}
+#booking{
+flex-direction: column;
+background-color: #111;
+color: #fff;
+}
