@@ -1,6 +1,6 @@
 .container1 {
     position: relative;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     /* width: 500px; */
     height: 300px;
   }
@@ -20,14 +20,14 @@
     background: rgba(0, 0, 0, .3);
   }
   
-  .img1 {
-    /* position: absolute;
+  /* .img1 {
+    position: absolute;
     width: 500px;
     height: 300px;
-    left: 0; */
+    left: 0;
         transition: top .5s ease;
 
-  }
+  } */
   
   /* .title1 {
     position: absolute;
@@ -43,9 +43,9 @@
     transition: top .5s ease;
   } */
   
-  .container1:hover .title1 {
+  /* .container1:hover .title1 {
     top: 90px;
-  }
+  } */
   
   .button1 {
     position: absolute;

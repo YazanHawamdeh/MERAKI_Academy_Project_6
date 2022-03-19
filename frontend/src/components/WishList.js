@@ -27,13 +27,11 @@ const getMyWishLists = async () => {
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
-    console.log(headers);
     await axios
       .get("http://localhost:5000/wishList", {headers})
 
       .then((res) => {
         if (res.data.results.length) {
-            console.log(res.data.results);
           dispatch(setWishList(res.data.results));
           setShow(true);
         }
@@ -59,12 +57,14 @@ const getMyWishLists = async () => {
     return(
         <div class="container-fluid col-11 ">
 
-            <div className='row '>
+            <div className='row ' style={{marginTop:"130px"}}>
 
             {show&&state.wishList.map(hotel=>{
                 return (
-                    <div class="col col-xl-3 m-2 col-sm-6 " style={{paddingLeft:"0",paddingRight:"0"}}>
-                     <div class="container1 " >
+                    <div class="col col-xl-3  col-sm-6 " style={{paddingLeft:"0",paddingRight:"0",  boxShadow:" 5px 10px 8px #888888"
+                    ,width:"355px",margin:"15px"
+                  }}>
+                     <div class="container1" >
                 <div onClick={() => {
                   navigate(`/detail/${hotel.id}`)
 

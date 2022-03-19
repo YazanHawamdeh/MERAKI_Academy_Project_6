@@ -35,24 +35,24 @@ const Home = () => {
           <Carousel.Item interval={3000}>
             <img
               className="d-block w-100 "
-              style={{ height: "45rem" }}
-              src="https://images.pexels.com/photos/2844474/pexels-photo-2844474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              style={{ height: "50rem" }}
+              src="https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
               alt="First slide"
             />
-            {/* <Carousel.Caption>
-            <h1 style={{paddingBottom:"10%",color:"white",fontSize:'60px',fontFamily:'auto'}}>EASIER TO BOOK</h1>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption> */}
+            <Carousel.Caption >
+            <h1 style={{display: 'flex',paddingBottom:"300px",color:"black",fontSize:'60px',fontFamily:'auto'}}>GOOD NIGHT</h1>
+            {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
+          </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item interval={3000}>
             <img
               className="d-block w-100"
-              style={{ height: "45rem" }}
+              style={{ height: "50rem" }}
               src="https://images.pexels.com/photos/6636247/pexels-photo-6636247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
           "
               alt="Second slide"
             />
-              <Carousel.Caption style={{paddingBottom:"15%",color:"black",fontSize:'25px',fontFamily:'auto'}}>
+              <Carousel.Caption style={{paddingBottom:"300px",color:"black",fontSize:'25px',fontFamily:'auto'}}>
               <h1 style={{color:"black",fontSize:'60px'}}>FOR MORE CONFORT</h1>
             <p>We have different types of rooms that contain th finest types of furniture and services</p>
           </Carousel.Caption>
@@ -60,13 +60,13 @@ const Home = () => {
           <Carousel.Item interval={3000}>
             <img
               className="d-block w-100"
-              style={{ height: "45rem" }}
+              style={{ height: "50rem" }}
               src="https://images.pexels.com/photos/756076/pexels-photo-756076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
 "
               alt="Third slide"
             />
 
-            <Carousel.Caption style={{paddingBottom:"15%",color:"black",fontSize:'25px',fontFamily:'auto'}}>
+            <Carousel.Caption style={{paddingBottom:"300px",color:"black",fontSize:'25px',fontFamily:'auto'}}>
             <h1 style={{color:"black",fontSize:'60px',fontFamily:'auto'}}>FOR MORE ENJOYMENT</h1>
             <p>
               We have beautiful places with great views
