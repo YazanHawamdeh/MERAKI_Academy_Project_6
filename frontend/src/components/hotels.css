@@ -87,3 +87,10 @@
   .price{
       margin-right: 15px;
   }
+
+  .test{
+    color: white;
+  }
+  .test:hover{
+    color:red
+  }

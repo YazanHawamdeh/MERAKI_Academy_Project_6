@@ -9,7 +9,9 @@ import Comment from './Comment';
 import './hotels.css'
 import Swal from "sweetalert2";
 
-import { BsHeart } from 'react-icons/bs';
+import { BsHeart,BsFillHeartFill } from 'react-icons/bs';
+import {AiOutlineHeart } from 'react-icons/ai';
+
 
 
 const Hotels = () => {
@@ -79,11 +81,13 @@ const Hotels = () => {
           navigate(`/detail/${hotel.id}`)
 
         }}>
-          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded img1" style={{ height: "360px" }} alt="Hollywood Sign on The Hill" />
+          {/* <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded img1" style={{ height: "360px" }} alt="Hollywood Sign on The Hill" /> */}
+          {/* <div>{hotel.image}</div> */}
+          <img src={hotel.image} class="card-img-top rounded img1" style={{ height: "360px" }}></img>
 
         </div>
         <div class="button1 
-"><BsHeart size={45} onClick={() => {
+"><BsFillHeartFill class="test"  size={50} onClick={() => {
                     Swal.fire({
                       icon: "success",
                       title: "Added successfully to wishList",
