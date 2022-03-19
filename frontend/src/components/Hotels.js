@@ -74,7 +74,7 @@ const Hotels = () => {
     {show&&state.hotels.map(hotel=>{
         return (
             <div class="col col-xl-3  col-sm-6 " style={{paddingLeft:"0",paddingRight:"0",  boxShadow:" 5px 10px 8px #888888"
-            ,width:"355px",margin:"15px"
+            ,width:"355px",margin:"12px"
           }}>
              <div class="container1" >
         <div onClick={() => {
@@ -103,7 +103,10 @@ const Hotels = () => {
 
       <div className='row' style={{ marginTop: "80px" }}>
         <div className='col-xl-6 '>
-          <h5 class="card-title1" style={{ height: "20px" }}> {hotel.hotelName}</h5>
+          <h5 class="card-title1" style={{ height: "20px" }} onClick={()=>{
+              navigate(`/detail/${hotel.id}`)
+    
+          }}> {hotel.hotelName}</h5>
         </div>
         <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
           <p className="price">price: ${hotel.price}</p>
