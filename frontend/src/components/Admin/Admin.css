@@ -8,7 +8,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.detail{
+.detailAdmin{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -30,4 +30,13 @@ tr{
     width: 100%;
     justify-content: flex-end ;
     display: flex;
+}
+#active{
+    background-color: #111;
+    color:#FFF ;
+   
+    
+}
+.page-link{
+    color: #198754;
 }

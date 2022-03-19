@@ -135,7 +135,7 @@ const [city_id,setCity_id]=useState("")
     <Form.Control type="file" placeholder="Image5"  onChange={(e)=>{setImage5(e.target.value)}}/>
   </Form.Group>
   </div>
-  <div className="detail">
+  <div className="detailAdmin">
   <Form.Group className="mb-3 col-3" >
     
     <Form.Control type="number" placeholder="Guests"  onChange={(e)=>{setGuests(e.target.value)}}/>
@@ -208,14 +208,14 @@ const [city_id,setCity_id]=useState("")
   </tbody>
 </Table>
 
-<Pagination>
+<Pagination className="Pagination">
   <Pagination.First onClick={()=>{dec()}}/>
   <Pagination.Prev  onClick={()=>{dec()}}/>
 
 
   
   <Pagination.Item>{page-1}</Pagination.Item>
-  <Pagination.Item active>{page}</Pagination.Item>
+  <Pagination.Item id="active">{page}</Pagination.Item>
   <Pagination.Item>{page+1}</Pagination.Item>
  
 
@@ -223,7 +223,7 @@ const [city_id,setCity_id]=useState("")
   <Pagination.Next onClick={()=>{inc()}}/>
   <Pagination.Last onClick={()=>{inc()}} />
 </Pagination>
-<div className="create "><Button className="col-2" variant="primary" onClick={handleShow}>
+<div className="create "><Button className="col-2" variant="success" onClick={handleShow}>
          Create
         </Button ></div>
       </Container>
