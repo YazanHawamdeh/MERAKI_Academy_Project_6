@@ -35,7 +35,7 @@ const Home = () => {
           <Carousel.Item interval={3000}>
             <img
               className="d-block w-100 "
-              style={{ height: "50rem" }}
+              style={{ height: "48rem" }}
               src="https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
               alt="First slide"
             />
@@ -49,7 +49,7 @@ const Home = () => {
           <Carousel.Item interval={3000}>
             <img
               className="d-block w-100"
-              style={{ height: "50rem" }}
+              style={{ height: "48rem" }}
               src="https://images.pexels.com/photos/6636247/pexels-photo-6636247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
           "
               alt="Second slide"
@@ -62,7 +62,7 @@ const Home = () => {
           <Carousel.Item interval={3000}>
             <img
               className="d-block w-100"
-              style={{ height: "50rem" }}
+              style={{ height: "48rem" }}
               src="https://images.pexels.com/photos/756076/pexels-photo-756076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
 "
               alt="Third slide"
