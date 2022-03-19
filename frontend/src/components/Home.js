@@ -80,10 +80,10 @@ const Home = () => {
       <Cities />
       <br /> <br />
       <br />
-      <h2 className="mb-3  mt-5 mb-5  container-fluid col-11 display-5 fw-bold">
-        Discover Airbnb Experiences
-      </h2>
-      <div
+      {/* <h2 className="mb-3  mt-5 mb-5  container-fluid col-11 display-5 fw-bold">
+        TOP RAITNG HOTELS
+      </h2> */}
+      {/* <div
         className="container-fluid col-11 "
         style={{ position: "relative", zIndex: "-1" }}
       >
@@ -155,8 +155,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="container-fluid col-11">
+      </div> */}
+      {/* <div className="container-fluid col-11">
         <div className="row">
           <div className="col-lg-4 col-sm-4 mb-5   container-fluid col-11 display-5">
             <p
@@ -185,7 +185,7 @@ const Home = () => {
             src="	https://a0.muscache.com/im/pictures/1ca4a497-ba40-4429-be1c-ac6abe4209c6.jpg?im_w=1200"
           ></img>
         </div>
-      </div>
+      </div> */}
       <div className="container-fluid col-11 mt-5 mb-5">
         <div className="row">
           <div
@@ -194,19 +194,19 @@ const Home = () => {
           >
             <img
               src="https://res.cloudinary.com/cryptoteam/image/upload/v1647163614/jqkioieksxplls8zfsuu.jpg"
-              className="w-100 rounded"
+              className="w-100 rounded-circle"
               alt="error"
             />
 
             <div class="community-banner-name mt-2">
-              <h3 class="ellipsis text-center my-3">Meet Andrew</h3>
-              <p
+              <h3 class="ellipsis text-center my-3">Meet Yazan</h3>
+              {/* <p
                 class="text-center text-gray"
                 title="We've used Hyra over a handful of times and it's been great every single time.  Definitely recommend."
               >
                 We've used Hyra over a handful of times and it's been great
                 every single time. Definitely recommend.
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -218,18 +218,18 @@ const Home = () => {
               src="https://res.cloudinary.com/cryptoteam/image/upload/v1647163614/jqkioieksxplls8zfsuu.jpg"
               //  style={{width:"80%"}}
               alt="error"
-              className="w-100 rounded"
+              className="w-100 rounded-circle"
             />
 
             <div class="community-banner-name mt-2">
-              <h3 class="ellipsis text-center my-3">Meet Andrew</h3>
-              <p
+              <h3 class="ellipsis text-center my-3">Meet Mohammad</h3>
+              {/* <p
                 class="text-center text-gray"
                 title="We've used Hyra over a handful of times and it's been great every single time.  Definitely recommend."
               >
                 We've used Hyra over a handful of times and it's been great
                 every single time. Definitely recommend.
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -240,19 +240,19 @@ const Home = () => {
             <img
               src="https://res.cloudinary.com/cryptoteam/image/upload/v1647163614/jqkioieksxplls8zfsuu.jpg"
               //  style={{width:"80%"}}
-              className="w-100 rounded"
+              className="w-100 rounded-circle"
               alt="error"
             />
 
             <div class="community-banner-name mt-2 ">
-              <h3 class="ellipsis text-center my-3">Meet Andrew</h3>
-              <p
+              <h3 class="ellipsis text-center my-3">Meet Omar</h3>
+              {/* <p
                 class="text-center text-gray ml-5"
                 title="We've used Hyra over a handful of times and it's been great every single time.  Definitely recommend."
               >
                 We've used Hyra over a handful of times and it's been great
                 every single time. Definitely recommend.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -262,14 +262,14 @@ const Home = () => {
             <div class="become_host-wrapper">
               <h3 className="ready"> Ready To Earn </h3>
               <div class="text-center">
-                <a
+                {/* <a
                   class="btn btn-link btn-primary mt-3"
                  
                 >
                   <h1 class="h4 text-white fw-bold mb-0"
                   
                   > Get Started </h1>
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

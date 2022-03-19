@@ -47,7 +47,6 @@ const Hotels = () => {
     const headers = {
       Authorization: `Bearer ${state.token}`,
     };
-    console.log(headers);
     await axios
       .post(`http://localhost:5000/wishList/${id}`, {}, { headers })
       .then((res) => {
@@ -66,22 +65,24 @@ const Hotels = () => {
 
 
   return (
-    <div class="container-fluid col-11">
+    <div class="container-fluid col-11 ">
 
-      <div className='row mt-5'>
+    <div className='row ' style={{marginTop:"130px"}}>
 
-        {show && state.hotels.map(hotel => {
-          return (<div>
-            <div class="col1 col-xl-3 col-sm-6" >
-              <div class="container1" >
-                <div onClick={() => {
-                  navigate(`/detail/${hotel.id}`)
+    {show&&state.hotels.map(hotel=>{
+        return (
+            <div class="col col-xl-3  col-sm-6 " style={{paddingLeft:"0",paddingRight:"0",  boxShadow:" 5px 10px 8px #888888"
+            ,width:"355px",margin:"15px"
+          }}>
+             <div class="container1" >
+        <div onClick={() => {
+          navigate(`/detail/${hotel.id}`)
 
-                }}>
-                  <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded img1" style={{ height: "360px" }} alt="Hollywood Sign on The Hill" />
+        }}>
+          <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top rounded img1" style={{ height: "360px" }} alt="Hollywood Sign on The Hill" />
 
-                </div>
-                <div class="button1 
+        </div>
+        <div class="button1 
 "><BsHeart size={45} onClick={() => {
                     Swal.fire({
                       icon: "success",
@@ -93,28 +94,38 @@ const Hotels = () => {
                     addToWishList(hotel.id);
                   }} /> </div>
 
-              </div>
+      </div>
 
 
+      <div className='row' style={{ marginTop: "80px" }}>
+        <div className='col-xl-6 '>
+          <h5 class="card-title1" style={{ height: "20px" }}> {hotel.hotelName}</h5>
+        </div>
+        <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
+          <p className="price">price: ${hotel.price}</p>
+        </div></div>
+           </div>
 
-              <div className='row' style={{ marginTop: "100px" }}>
-                <div className='col-xl-6 '>
-                  <h5 class="card-title" style={{ height: "20px" }}> {hotel.hotelName}</h5>
-                </div>
-                <div className='col-xl-6 d-flex flex-row-reverse bd-highlight '>
-                  <p className="price">price: {hotel.price}$</p>
-                </div></div>
-            </div>
-          </div>
+        )
+    })}</div>                        
 
-          )
-        })}</div>
-
-
-
-
-    </div>
+</div>
   )
 }
+
+
+
+
+{/* <div class="button1 
+"><BsHeart size={45} onClick={() => {
+                    Swal.fire({
+                      icon: "success",
+                      title: "Added successfully to wishList",
+                      showConfirmButton: false,
+                      timer: 1500,
+                    });
+
+                    addToWishList(hotel.id);
+                  }} /> </div> */}
 
 export default Hotels
